@@ -1,4 +1,4 @@
-/* Full Background */
+/* ===== Full Background ===== */
 body {
   margin: 0;
   padding: 0;
@@ -13,41 +13,75 @@ body {
 }
 body.loaded { opacity: 1; }
 
-/* Brand/Name override */
+/* ===== Brand/Name Override ===== */
 header .brand {
   font-family: 'Chomsky', serif;
-  font-size: 2rem;
+  font-size: 3rem;
   color: #FFD700;
   text-decoration: none;
 }
 
-/* Navigation */
-nav .links {
+/* ===== New Full-Width Header ===== */
+header.full-header {
+  width: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 40px;
+  box-sizing: border-box;
 }
-nav .links a {
+
+/* Centered Brand + Vertical Menu */
+header.full-header .brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+header.full-header nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+header.full-header nav a {
   color: #eaeaea;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1rem;
 }
-nav .links a:hover { color: #d2b48c; }
-nav .links a.current { color: #d2b48c; font-weight: bold; }
 
-/* Centered content box */
+header.full-header nav a:hover {
+  color: #d2b48c;
+}
+
+/* Right-Side Social Icons */
+header.full-header .site-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+header.full-header .site-right a img {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+/* ===== Centered Content Box ===== */
 .content-container {
   max-width: 1100px;
-  margin: 40px auto;       /* centered */
+  margin: 40px auto;       /* centered horizontally */
   padding: 40px 20px;
   background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
   border-radius: 8px;
   line-height: 1.6;
 }
 
-/* Fade-in content */
+/* ===== Fade-In Content ===== */
 .intro-fade {
   opacity: 0;
   transform: translateY(20px);
