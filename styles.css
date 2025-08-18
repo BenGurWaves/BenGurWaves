@@ -23,37 +23,46 @@ header.site {
   padding: 10px 40px;
   width: 100%;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.3); /* optional semi-transparent background for header */
+  position: relative; /* needed for absolute brand centering */
 }
 
-/* Page links on the left */
+/* Left side links */
 header nav.links-left {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  width: 50%;
 }
 header nav.links-left a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  flex: 1;               /* each link takes equal space */
+  text-align: center;    /* center text inside each link */
 }
 header nav.links-left a:hover {
   color: #d2b48c; /* tan hover */
 }
 
-/* Brand in the center */
+/* Center brand */
 header .brand {
   font-family: 'Chomsky', serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #FFD700;
   text-decoration: none;
-  text-align: center;
-  flex-shrink: 0; /* prevents shrinking in flex layout */
+  position: absolute;      /* allows true centering */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Platform icons on the right */
+/* Right side icons */
 header nav.links-right {
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  width: 50%;
+}
+header nav.links-right a {
+  flex: 1;               /* evenly space icons */
+  text-align: center;    /* center icons inside their space */
 }
 header nav.links-right a img {
   width: 24px;
@@ -68,13 +77,12 @@ header nav.links-right a:hover img {
 /* ================= Centered Content Box ================= */
 .content-container {
   max-width: 1100px;
-  margin: 40px auto;
+  margin: 40px auto;       /* centered */
   padding: 40px 20px;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
   border-radius: 8px;
   line-height: 1.6;
   text-align: left;
-  box-sizing: border-box;
 }
 
 /* ================= Fade-in Content ================= */
