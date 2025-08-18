@@ -16,7 +16,36 @@ a { color: var(--text); text-decoration: none; }
 a:hover { color: var(--accent); }
 
 .site { max-width: 1100px; margin: 0 auto; padding: 16px; }
-.nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #222; }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: rgba(0,0,0,0.6); /* semi-transparent so text shows over background image */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  font-family: 'Chomsky', serif;
+  font-size: 1.5rem;
+  color: #FFD700; /* gold */
+  text-decoration: none;
+}
+
+.links a {
+  color: #ffffff;
+  margin-left: 20px;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.links a:hover {
+  color: #d2b48c; /* tan hover */
+}
+
 .brand { font-size: 1.25rem; letter-spacing: .5px; }
 .links a { margin-left: 18px; color: var(--muted); }
 .links a:hover { color: var(--accent); }
