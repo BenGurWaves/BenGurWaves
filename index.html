@@ -6,37 +6,11 @@
   <title>BenGurWaves — Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<script>
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-
-// Animate hero name size on scroll
-const heroName = document.querySelector('.hero-name');
-const heroDesc = document.querySelector('.hero-description');
-const headerHeight = document.querySelector('header.site').offsetHeight;
-
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-
-  // calculate new font size (max 5rem, min 2rem)
-  const maxFont = 5;
-  const minFont = 2;
-  const scrollLimit = 400; // how fast it shrinks
-  let newSize = maxFont - (scrollY / scrollLimit) * (maxFont - minFont);
-  if(newSize < minFont) newSize = minFont;
-  heroName.style.fontSize = newSize + 'rem';
-
-  // hide description gradually
-  const descFade = 1 - (scrollY / scrollLimit);
-  heroDesc.style.opacity = descFade < 0 ? 0 : descFade;
-});
-</script>
-
 
 <body>
   <!-- Header -->
   <header class="site">
+    <!-- Left nav links -->
     <nav class="links-left">
       <a href="index.html">Home</a>
       <a href="releases.html">Releases</a>
@@ -46,6 +20,7 @@ window.addEventListener('scroll', () => {
       <a href="david.html">David</a>
     </nav>
 
+    <!-- Right platform icons -->
     <nav class="links-right">
       <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
       <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
@@ -57,7 +32,7 @@ window.addEventListener('scroll', () => {
     </nav>
   </header>
 
-  <!-- Hero Section (below header) -->
+  <!-- Hero Section -->
   <section class="hero-intro">
     <h1 class="hero-name">BenGurWaves</h1>
     <p class="hero-description">Pianist, Composer, Storyteller</p>
@@ -73,25 +48,40 @@ window.addEventListener('scroll', () => {
     <!-- more sections here -->
   </main>
 
+  <!-- JavaScript -->
   <script>
     // Fade-in body
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
     });
 
-    // Hero name shrink on scroll
-    window.addEventListener("scroll", () => {
-      const heroName = document.querySelector('.hero-name');
-      const heroDesc = document.querySelector('.hero-description');
-      if(window.scrollY > 150){  // adjust scroll trigger
-        heroName.classList.add('shrink');
-        heroDesc.classList.add('hide');
-      } else {
-        heroName.classList.remove('shrink');
-        heroDesc.classList.remove('hide');
-      }
+    // Hero name shrink and move on scroll
+    const heroName = document.querySelector('.hero-name');
+    const heroDesc = document.querySelector('.hero-description');
+    const header = document.querySelector('header.site');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const heroTop = heroName.parentElement.offsetTop;
+
+      // Calculate progress (0 = start, 1 = reached header)
+      const maxScroll = header.offsetHeight + 200; // slower movement
+      let progress = scrollY / maxScroll;
+      if(progress > 1) progress = 1;
+
+      // Shrink font size: 5rem -> 2rem
+      const minFont = 2;
+      const maxFont = 5;
+      heroName.style.fontSize = (maxFont - (maxFont - minFont) * progress) + 'rem';
+
+      // Move vertically toward header center
+      const startTop = heroTop + 400; // approximate center of hero section
+      const endTop = header.offsetHeight / 2 - heroName.offsetHeight / 2;
+      heroName.style.top = (startTop - (startTop - endTop) * progress) + 'px';
+
+      // Fade out description
+      heroDesc.style.opacity = 1 - progress;
     });
   </script>
 </body>
-
 </html>
