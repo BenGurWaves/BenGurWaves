@@ -1,50 +1,84 @@
-/* ===== Full-Width Header ===== */
-header.full-header {
-  width: 100%;
+/* ================= Full Background & Body ================= */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('IMG-20250705-WA0018.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Times New Roman', serif; /* default font */
+  color: #fff;
+  text-align: center;
+  background-color: black; /* fallback */
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+body.loaded { opacity: 1; }
+
+/* ================= Header ================= */
+header.site {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
-  padding: 20px 0;
+  padding: 10px 40px;
+  width: 100%;
   box-sizing: border-box;
-  background: rgba(0,0,0,0.3); /* optional semi-transparent header bg */
 }
 
-/* Brand Name */
-header.full-header .brand {
-  font-family: 'Chomsky', serif;
-  font-size: 3rem;
-  color: #FFD700;
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-/* Page Links Row */
-header.full-header nav {
+/* Page links on the left */
+header nav.links-left {
   display: flex;
   gap: 20px;
 }
-
-header.full-header nav a {
+header nav.links-left a {
   color: #fff;
-  text-decoration: none;  /* removes underline */
+  text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
 }
-
-header.full-header nav a:hover {
+header nav.links-left a:hover {
   color: #d2b48c; /* tan hover */
 }
 
-/* Social Icons Row */
-header.full-header .site-right {
-  display: flex;
-  gap: 15px;
-  margin-top: 5px;
+/* Brand in the center */
+header .brand {
+  font-family: 'Chomsky', serif;
+  font-size: 2rem;
+  color: #FFD700;
+  text-decoration: none;
 }
 
-header.full-header .site-right a img {
-  width: 32px;
-  height: 32px;
-  display: block;
+/* Platform icons on the right */
+header nav.links-right {
+  display: flex;
+  gap: 15px;
+}
+header nav.links-right a img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  filter: brightness(1) invert(1); /* ensures white icons */
+}
+header nav.links-right a:hover img {
+  filter: brightness(1) invert(0.7); /* slight hover effect */
+}
+
+/* ================= Centered Content Box ================= */
+.content-container {
+  max-width: 1100px;
+  margin: 40px auto;       /* centered */
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  border-radius: 8px;
+  line-height: 1.6;
+  text-align: left; /* optional: keep text left-aligned inside box */
+}
+
+/* ================= Fade-in Content ================= */
+.intro-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition-delay: 2s;
+}
+body.loaded .intro-fade {
+  opacity: 1;
+  transform: translateY(0);
 }
