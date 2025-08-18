@@ -70,3 +70,26 @@ nav .links a.current {
   opacity: 1;
   transform: translateY(0);
 }
+/* ===== Fade-in page load animations ===== */
+body {
+  opacity: 0;
+  transition: opacity 2s ease;
+  background-color: black; /* fallback while background loads */
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* For content that should fade in after background */
+.intro-fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition-delay: 2s; /* waits until background is visible */
+}
+
+body.loaded .intro-fade {
+  opacity: 1;
+  transform: translateY(0);
+}
