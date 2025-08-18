@@ -13,12 +13,6 @@
 </script>
 
 <body>
-  <!-- Hero Section -->
-  <section class="hero-intro">
-    <h1 class="hero-name">BenGurWaves</h1>
-    <p class="hero-description">Pianist, Composer, Storyteller</p>
-  </section>
-
   <!-- Header -->
   <header class="site">
     <nav class="links-left">
@@ -43,6 +37,12 @@
     </nav>
   </header>
 
+  <!-- Hero Section (below header) -->
+  <section class="hero-intro">
+    <h1 class="hero-name">BenGurWaves</h1>
+    <p class="hero-description">Pianist, Composer, Storyteller</p>
+  </section>
+
   <!-- Main Content -->
   <main class="site content-container intro-fade">
     <section>
@@ -63,7 +63,7 @@
     window.addEventListener("scroll", () => {
       const heroName = document.querySelector('.hero-name');
       const heroDesc = document.querySelector('.hero-description');
-      if(window.scrollY > 50){
+      if(window.scrollY > 150){  // adjust scroll trigger
         heroName.classList.add('shrink');
         heroDesc.classList.add('hide');
       } else {
@@ -73,4 +73,5 @@
     });
   </script>
 </body>
+
 </html>
