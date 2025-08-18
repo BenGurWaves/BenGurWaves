@@ -44,9 +44,10 @@ header nav.links-left a:hover {
 header .brand {
   font-family: 'Chomsky', serif;
   font-size: 2rem;
-  color: #FFD700;
+  color: #ffffff; /* changed from gold to white */
   text-decoration: none;
 }
+
 
 /* Platform icons on the right */
 header nav.links-right {
