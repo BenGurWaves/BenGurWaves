@@ -9,7 +9,7 @@ body {
   text-align: center;
   background-color: black;
   opacity: 0;
-  transition: opacity 1.2s ease; /* slightly faster fade-in */
+  transition: opacity 1.2s ease;
 }
 body.loaded { opacity: 1; }
 
@@ -44,7 +44,7 @@ header nav.links-left a:hover {
 header .brand {
   font-family: 'Chomsky', serif;
   font-size: 2rem;
-  color: #fff; /* white name */
+  color: #fff;
   text-decoration: none;
 }
 
@@ -63,7 +63,7 @@ header nav.links-right a:hover img {
 
 /* ================= Hero Section (under header) ================= */
 .hero-intro {
-  height: 890px; /* exact section height */
+  height: 890px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,7 +74,7 @@ header nav.links-right a:hover img {
   font-family: 'Chomsky', serif;
   font-size: 5rem;
   margin: 0;
-  transition: all 0.5s ease;
+  transition: font-size 0.5s ease;
 }
 
 .hero-description {
@@ -82,15 +82,6 @@ header nav.links-right a:hover img {
   font-size: 1.5rem;
   margin: 10px 0 0 0;
   transition: opacity 0.5s ease;
-}
-
-.hero-name.shrink {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  z-index: 9999;
 }
 
 .hero-description.hide {
