@@ -88,6 +88,10 @@ body.loaded {
   transition: opacity 1.5s ease, transform 1.5s ease;
   transition-delay: 2s; /* waits until background is visible */
 }
+/* Stagger timing for different elements */
+header.intro-fade { transition-delay: 2.2s; }
+main.intro-fade { transition-delay: 2.5s; }
+footer.intro-fade { transition-delay: 3s; }
 
 body.loaded .intro-fade {
   opacity: 1;
