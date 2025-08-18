@@ -1,80 +1,62 @@
-:root {
-  --text: #eaeaea;
-  --muted: #b5b5b5;
-  --accent: #d2b48c; /* tan */
-}
-
-/* Reset & body with background image */
-* { box-sizing: border-box; }
-html, body {
+/* Full-Width Background */
+body {
   margin: 0;
   padding: 0;
-  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  color: var(--text);
-  background: url("IMG-20250705-WA0018.jpg") no-repeat center center fixed;
+  background: url('IMG-20250705-WA0018.jpg') no-repeat center center fixed;
   background-size: cover;
+  font-family: 'DM Sans', sans-serif;
+  color: #eaeaea;
 }
 
-/* Optional overlay behind content */
+/* Centered Content Wrapper */
 .site {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 16px;
-  background: rgba(0,0,0,0.6); /* dark overlay so text is readable */
-  border-radius: 6px;
+  padding: 40px; /* breathing room on all sides */
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent so text is readable */
+  border-radius: 8px; /* optional rounded corners */
 }
 
-/* Links */
-a { color: var(--text); text-decoration: none; }
-a:hover { color: var(--accent); }
-
-/* Nav bar */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px;
-  background-color: rgba(0,0,0,0.6); /* semi-transparent so text shows over background image */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.nav .active {
-  color: var(--accent); /* tan highlight */
-  font-weight: 700;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 2px;
-}
-.brand {
+/* Header & Navigation */
+header .brand {
   font-family: 'Chomsky', serif;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #FFD700; /* gold */
   text-decoration: none;
 }
 
-.links a {
-  color: #ffffff;
-  margin-left: 20px;
-  font-family: 'DM Sans', sans-serif;
+nav .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+nav .links a {
+  color: #eaeaea;
   text-decoration: none;
   font-weight: 500;
 }
 
-.links a:hover {
-  color: var(--accent);
+nav .links a:hover {
+  color: #d2b48c; /* tan hover */
 }
 
-/* Hero section */
+/* Highlight current page link */
+nav .links a.current {
+  color: #d2b48c;
+  font-weight: bold;
+}
+
+/* Hero / main sections */
 .hero {
-  padding: 64px 0 96px;
+  margin-top: 20px;
 }
 
 .hero h1 {
-  margin: 0 0 8px;
-  font-size: 2.25rem;
+  margin-bottom: 16px;
 }
 
 .hero p {
-  margin: 0;
-  color: var(--muted);
+  line-height: 1.6;
 }
