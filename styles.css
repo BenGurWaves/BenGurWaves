@@ -1,4 +1,4 @@
-/* Full-Width Background */
+/* ===== Full-Width Background ===== */
 body {
   margin: 0;
   padding: 0;
@@ -6,28 +6,41 @@ body {
   background-size: cover;
   font-family: 'DM Sans', sans-serif;
   color: #eaeaea;
+  text-align: center; /* makes text center-aligned across site */
+  opacity: 0; /* for fade-in on load */
+  transition: opacity 2s ease;
+  background-color: black; /* fallback while background loads */
 }
 
-/* Centered Content Wrapper */
-.site {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px; /* breathing room on all sides */
-  background: rgba(0, 0, 0, 0.6); /* semi-transparent so text is readable */
-  border-radius: 8px; /* optional rounded corners */
+body.loaded {
+  opacity: 1;
 }
 
-/* Header & Navigation */
+/* ===== Centered Content Wrapper ===== */
+.content-container {
+  max-width: 1100px;   /* keeps text in center */
+  margin: 0 auto;      /* horizontally centers */
+  padding: 40px 20px;  /* breathing room */
+  background: rgba(0, 0, 0, 0.6); /* semi-transparent for readability */
+  border-radius: 8px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* ===== Header & Navigation ===== */
 header .brand {
   font-family: 'Chomsky', serif;
   font-size: 2rem;
   color: #FFD700; /* gold */
   text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
 }
 
 nav .links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* keeps links centered */
   gap: 15px;
   margin-top: 10px;
 }
@@ -48,7 +61,7 @@ nav .links a.current {
   font-weight: bold;
 }
 
-/* Hero / main sections */
+/* ===== Hero / Main Sections ===== */
 .hero {
   margin-top: 20px;
 }
@@ -60,6 +73,8 @@ nav .links a.current {
 .hero p {
   line-height: 1.6;
 }
+
+/* ===== Scroll Fade-in Animation ===== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -70,24 +85,15 @@ nav .links a.current {
   opacity: 1;
   transform: translateY(0);
 }
-/* ===== Fade-in page load animations ===== */
-body {
-  opacity: 0;
-  transition: opacity 2s ease;
-  background-color: black; /* fallback while background loads */
-}
 
-body.loaded {
-  opacity: 1;
-}
-
-/* For content that should fade in after background */
+/* ===== Page Load Fade-in Animation ===== */
 .intro-fade {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.5s ease, transform 1.5s ease;
-  transition-delay: 2s; /* waits until background is visible */
+  transition-delay: 2s;
 }
+
 /* Stagger timing for different elements */
 header.intro-fade { transition-delay: 2.2s; }
 main.intro-fade { transition-delay: 2.5s; }
