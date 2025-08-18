@@ -39,7 +39,12 @@ a:hover { color: var(--accent); }
   top: 0;
   z-index: 1000;
 }
-
+.nav .active {
+  color: var(--accent); /* tan highlight */
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
 .brand {
   font-family: 'Chomsky', serif;
   font-size: 1.5rem;
