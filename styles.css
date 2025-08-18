@@ -1,94 +1,50 @@
-/* ===== Full Background ===== */
-body {
-  margin: 0;
-  padding: 0;
-  background: url('IMG-20250705-WA0018.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Times New Roman', serif; /* default font */
-  color: #fff;
-  text-align: center; /* center all text */
-  background-color: black; /* fallback */
-  opacity: 0;
-  transition: opacity 2s ease;
-}
-body.loaded { opacity: 1; }
-
-/* ===== Brand/Name Override ===== */
-header .brand {
-  font-family: 'Chomsky', serif;
-  font-size: 3rem;
-  color: #FFD700;
-  text-decoration: none;
-}
-
-/* ===== New Full-Width Header ===== */
+/* ===== Full-Width Header ===== */
 header.full-header {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 40px;
-  box-sizing: border-box;
-}
-
-/* Centered Brand + Vertical Menu */
-header.full-header .brand-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  padding: 20px 0;
+  box-sizing: border-box;
+  background: rgba(0,0,0,0.3); /* optional semi-transparent header bg */
 }
 
+/* Brand Name */
+header.full-header .brand {
+  font-family: 'Chomsky', serif;
+  font-size: 3rem;
+  color: #FFD700;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* Page Links Row */
 header.full-header nav {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
+  gap: 20px;
 }
 
 header.full-header nav a {
-  color: #eaeaea;
-  text-decoration: none;
+  color: #fff;
+  text-decoration: none;  /* removes underline */
   font-weight: 500;
   font-size: 1rem;
 }
 
 header.full-header nav a:hover {
-  color: #d2b48c;
+  color: #d2b48c; /* tan hover */
 }
 
-/* Right-Side Social Icons */
+/* Social Icons Row */
 header.full-header .site-right {
   display: flex;
-  flex-direction: column;
   gap: 15px;
-  align-items: flex-end;
+  margin-top: 5px;
 }
 
 header.full-header .site-right a img {
   width: 32px;
   height: 32px;
   display: block;
-}
-
-/* ===== Centered Content Box ===== */
-.content-container {
-  max-width: 1100px;
-  margin: 40px auto;       /* centered horizontally */
-  padding: 40px 20px;
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-  border-radius: 8px;
-  line-height: 1.6;
-}
-
-/* ===== Fade-In Content ===== */
-.intro-fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.5s ease, transform 1.5s ease;
-  transition-delay: 2s;
-}
-body.loaded .intro-fade {
-  opacity: 1;
-  transform: translateY(0);
 }
