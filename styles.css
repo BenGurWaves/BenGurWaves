@@ -10,7 +10,7 @@ body {
   text-align: center;
   background-color: black; /* fallback while background loads */
   opacity: 0;
-  transition: opacity 1.5s ease; /* slightly faster fade-in */
+  transition: opacity 0.5s ease; /* slightly faster fade-in */
 }
 body.loaded {
   opacity: 1;
