@@ -7,10 +7,32 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <script>
-  window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-  });
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+// Animate hero name size on scroll
+const heroName = document.querySelector('.hero-name');
+const heroDesc = document.querySelector('.hero-description');
+const headerHeight = document.querySelector('header.site').offsetHeight;
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+
+  // calculate new font size (max 5rem, min 2rem)
+  const maxFont = 5;
+  const minFont = 2;
+  const scrollLimit = 400; // how fast it shrinks
+  let newSize = maxFont - (scrollY / scrollLimit) * (maxFont - minFont);
+  if(newSize < minFont) newSize = minFont;
+  heroName.style.fontSize = newSize + 'rem';
+
+  // hide description gradually
+  const descFade = 1 - (scrollY / scrollLimit);
+  heroDesc.style.opacity = descFade < 0 ? 0 : descFade;
+});
 </script>
+
 
 <body>
   <!-- Header -->
