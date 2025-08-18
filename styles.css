@@ -14,6 +14,7 @@ body {
 body.loaded {
   opacity: 1;
 }
+
 /* ================= Header ================= */
 header.site {
   display: flex;
@@ -22,6 +23,7 @@ header.site {
   padding: 10px 40px;
   width: 100%;
   box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3); /* optional semi-transparent background for header */
 }
 
 /* Page links on the left */
@@ -41,9 +43,11 @@ header nav.links-left a:hover {
 /* Brand in the center */
 header .brand {
   font-family: 'Chomsky', serif;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #FFD700;
   text-decoration: none;
+  text-align: center;
+  flex-shrink: 0; /* prevents shrinking in flex layout */
 }
 
 /* Platform icons on the right */
@@ -70,6 +74,7 @@ header nav.links-right a:hover img {
   border-radius: 8px;
   line-height: 1.6;
   text-align: left;
+  box-sizing: border-box;
 }
 
 /* ================= Fade-in Content ================= */
