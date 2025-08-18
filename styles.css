@@ -1,140 +1,60 @@
-/* ========== BenGurWaves styles.css (replace whole file) ========== */
-
-/* Colors & fonts */
-:root{
-  --bg: #0b0b0b;
-  --text: #eaeaea;
-  --muted: #b5b5b5;
-  --accent: #d2b48c; /* tan */
-  --gold: #FFD700;
-  --content-bg: rgba(0,0,0,0.62);
-}
-
-/* Full-Width Background + base */
+/* Full Background */
 body {
   margin: 0;
   padding: 0;
   background: url('IMG-20250705-WA0018.jpg') no-repeat center center fixed;
   background-size: cover;
-  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  color: var(--text);
-  opacity: 0;                 /* for page load fade */
-  transition: opacity 1.6s ease;
-  background-color: var(--bg); /* fallback */
+  font-family: 'Times New Roman', serif; /* default font */
+  color: #fff;
+  text-align: center; /* center all text */
+  background-color: black; /* fallback */
+  opacity: 0;
+  transition: opacity 2s ease;
 }
+body.loaded { opacity: 1; }
 
-/* When JS adds this class, page fades in */
-body.loaded {
-  opacity: 1;
-}
-
-/* Centered content wrapper (use this on main content) */
-.content-container {
-  max-width: 1100px;
-  margin: 36px auto;
-  padding: 40px 28px;
-  background: var(--content-bg);
-  border-radius: 8px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  color: var(--text);
-  line-height: 1.6;
-  text-align: left; /* paragraphs left-aligned for readability */
-}
-
-/* Headings centered inside the content container */
-.content-container h1,
-.content-container h2 {
-  text-align: center;
-  margin-top: 0;
-}
-
-/* Header & nav */
+/* Brand/Name override */
 header .brand {
-  font-family: "Chomsky", serif;
-  font-size: 1.9rem;
-  color: var(--gold);
+  font-family: 'Chomsky', serif;
+  font-size: 2rem;
+  color: #FFD700;
   text-decoration: none;
-  display: inline-block;
 }
 
-/* Top nav bar inside the content container */
-.nav {
+/* Navigation */
+nav .links {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.nav .links {
-  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: center; /* center the nav links */
-  gap: 14px;
-  margin-top: 6px;
+  gap: 15px;
+  margin-top: 10px;
 }
-
-.nav .links a {
-  color: var(--text);
+nav .links a {
+  color: #eaeaea;
   text-decoration: none;
   font-weight: 500;
-  padding: 6px 8px;
+}
+nav .links a:hover { color: #d2b48c; }
+nav .links a.current { color: #d2b48c; font-weight: bold; }
+
+/* Centered content box */
+.content-container {
+  max-width: 1100px;
+  margin: 40px auto;       /* centered */
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  border-radius: 8px;
+  line-height: 1.6;
 }
 
-.nav .links a:hover {
-  color: var(--accent);
-}
-
-/* Highlight the active/current page link */
-.nav .links a.current {
-  color: var(--accent);
-  font-weight: 700;
-  border-bottom: 2px solid var(--accent);
-  padding-bottom: 4px;
-}
-
-/* Hero and sections */
-.hero { margin: 22px 0; }
-.hero h1 { font-size: 2.25rem; margin-bottom: 8px; text-align:center; }
-.hero p { color: var(--muted); }
-
-/* Links inside content */
-.content-container a { color: var(--accent); }
-
-/* ===== Scroll fade-in helper (use class="fade-in" on elements) ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== Page-load intro fade (intro-fade for header/main/footer) ===== */
+/* Fade-in content */
 .intro-fade {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  transition-delay: 0.9s; /* short delay after body fades */
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition-delay: 2s;
 }
-
-/* small stagger for different sections */
-header.intro-fade { transition-delay: 1.05s; }
-main.intro-fade   { transition-delay: 1.2s; }
-footer.intro-fade { transition-delay: 1.35s; }
-
 body.loaded .intro-fade {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Responsive tweaks */
-@media (max-width: 720px) {
-  .content-container { padding: 24px 16px; margin: 18px; }
-  .hero h1 { font-size: 1.6rem; }
-  header .brand { font-size: 1.4rem; }
-  .nav .links { gap: 10px; font-size: 0.95rem; }
 }
