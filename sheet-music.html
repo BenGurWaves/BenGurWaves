@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sheet Music — BenGurWaves</title>
+  <!-- CHANGE THIS HREF if your CSS file is named style.css instead of styles.css -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="content-container intro-fade">
+    <header class="site-header intro-fade">
+      <nav class="nav" role="navigation" aria-label="Main">
+        <a href="index.html" class="brand">BenGurWaves</a>
+        <div class="links" role="menubar">
+          <a href="featured.html">Featured</a>
+          <a href="index.html">Home</a>
+          <a href="music.html">Music</a>
+          <a href="videos.html">Videos</a>
+          <a href="sheet-music.html" class="current">Sheet Music</a>
+          <a href="merch.html">Merch</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="me.html">Me</a>
+          <a href="david.html">David</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="intro-fade">
+      <section class="hero">
+        <h1 class="fade-in">Sheet Music</h1>
+        <p class="fade-in">Arrangements and originals. Download, print, play.</p>
+      </section>
+
+      <!-- Example list – replace with your real pieces -->
+      <section>
+        <div class="fade-in">
+          <h2>Featured Scores</h2>
+          <ul style="list-style:none; padding:0; margin:20px 0;">
+            <li style="margin:16px 0;">
+              <strong>Crystal Waterfalls — Piano Solo</strong><br>
+              <a href="assets/sheet/Crystal-Waterfalls-Piano.pdf" target="_blank">Download PDF</a>
+              &middot;
+              <a href="assets/sheet/Crystal-Waterfalls-MIDI.mid" target="_blank">MIDI</a>
+              &middot;
+              <a href="https://youtu.be/your-video" target="_blank">Performance Video</a>
+            </li>
+            <li style="margin:16px 0;">
+              <strong>Evening Light — Piano & Violin</strong><br>
+              <a href="assets/sheet/Evening-Light-Piano-Violin.pdf" target="_blank">Download PDF</a>
+              &middot;
+              <a href="assets/sheet/Evening-Light-MIDI.mid" target="_blank">MIDI</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Optional embed example (remove if not needed) -->
+      <section class="fade-in" style="margin-top:30px;">
+        <h2>Preview</h2>
+        <p style="color:#b5b5b5;">Embed a score viewer or a performance video here.</p>
+        <!-- Example YouTube embed -->
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Score Preview"
+            frameborder="0"
+            allowfullscreen
+            style="position:absolute;top:0;left:0;width:100%;height:100%;">
+          </iframe>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="intro-fade" style="text-align:center; margin:18px 0;">
+    <small style="color:#b5b5b5;">© 2025 BenGurWaves</small>
+  </footer>
+
+  <script>
+    // Page fade-in
+    window.addEventListener("load", function() {
+      document.body.classList.add("loaded");
+      revealOnScroll();
+    });
+
+    // Reveal-on-scroll for .fade-in blocks
+    function revealOnScroll() {
+      const items = document.querySelectorAll('.fade-in');
+      items.forEach(item => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          item.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('resize', revealOnScroll);
+  </script>
+</body>
+</html>
