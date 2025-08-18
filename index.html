@@ -13,53 +13,64 @@
 </script>
 
 <body>
-  
- <header class="site intro-fade">
-  <nav class="links-left">
-    <a href="index.html">Home</a>
-    <a href="releases.html">Releases</a>
-    <a href="merch.html">Merch</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="me.html">Me</a>
-    <a href="david.html">David</a>
-  </nav>
+  <!-- Hero Section -->
+  <section class="hero-intro">
+    <h1 class="hero-name">BenGurWaves</h1>
+    <p class="hero-description">Pianist, Composer, Storyteller</p>
+  </section>
 
-  <a href="index.html" class="brand">BenGurWaves</a>
+  <!-- Header -->
+  <header class="site">
+    <nav class="links-left">
+      <a href="index.html">Home</a>
+      <a href="releases.html">Releases</a>
+      <a href="merch.html">Merch</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="me.html">Me</a>
+      <a href="david.html">David</a>
+    </nav>
 
-  <nav class="links-right">
-    <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
-    <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
-    <a href="https://www.tiktok.com/@ben_gur_waves"><img src="tiktok-48.png" alt="TikTok"></a>
-    <a href="https://vimeo.com/bengurwaves"><img src="icons8-vimeo.svg" alt="Vimeo"></a>
-    <a href="https://rumble.com/bengurwaves"><img src="Rumble--Streamline-Simple-Icons.svg" alt="Rumble"></a>
-    <a href="https://soundcloud.com/bengurwaves"><img src="icons8-soundcloud-logo.svg" alt="SoundCloud"></a>
-    <a href="https://bengurwaves.bandcamp.com/"><img src="icons8-bandcamp.svg" alt="Bandcamp"></a>
-  </nav>
-</header>
+    <a href="index.html" class="brand">BenGurWaves</a>
 
+    <nav class="links-right">
+      <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
+      <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/@ben_gur_waves"><img src="tiktok-48.png" alt="TikTok"></a>
+      <a href="https://vimeo.com/bengurwaves"><img src="icons8-vimeo.svg" alt="Vimeo"></a>
+      <a href="https://rumble.com/bengurwaves"><img src="Rumble--Streamline-Simple-Icons.svg" alt="Rumble"></a>
+      <a href="https://soundcloud.com/bengurwaves"><img src="icons8-soundcloud-logo.svg" alt="SoundCloud"></a>
+      <a href="https://bengurwaves.bandcamp.com/"><img src="icons8-bandcamp.svg" alt="Bandcamp"></a>
+    </nav>
+  </header>
 
-  <main class="content-container intro-fade">
-    <!-- Featured Section -->
-    <section class="hero">
-      <h1>Featured</h1>
+  <!-- Main Content -->
+  <main class="site content-container intro-fade">
+    <section>
+      <h2>Featured</h2>
       <p>Check out my latest release, video, or project!</p>
-      <a href="music.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
+      <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
     </section>
-
-    <!-- Other Homepage Content -->
-    <section style="margin-top:40px;">
-      <h2>Latest Music</h2>
-      <p>Embed players, previews, or Gumroad links here.</p>
-    </section>
-
-    <section style="margin-top:40px;">
-      <h2>Gallery / Videos</h2>
-      <p>Showcase videos or photos here.</p>
-    </section>
+    <!-- more sections here -->
   </main>
 
-  <footer class="content-container intro-fade" style="margin-top:40px;">
-    <p>© BenGurWaves2025 All Rights Reserved</p>
-  </footer>
+  <script>
+    // Fade-in body
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    // Hero name shrink on scroll
+    window.addEventListener("scroll", () => {
+      const heroName = document.querySelector('.hero-name');
+      const heroDesc = document.querySelector('.hero-description');
+      if(window.scrollY > 50){
+        heroName.classList.add('shrink');
+        heroDesc.classList.add('hide');
+      } else {
+        heroName.classList.remove('shrink');
+        heroDesc.classList.remove('hide');
+      }
+    });
+  </script>
 </body>
 </html>
