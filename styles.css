@@ -2,20 +2,68 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('IMG_0913.JPG') no-repeat center center fixed;
+  background: url('DSC_0021.JPG') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Times New Roman', serif;
   color: #fff;
   text-align: center;
   background-color: black;
   opacity: 0;
-  transition: opacity 1.5s ease; /* slightly faster fade-in */
+  transition: opacity 1.2s ease; /* slightly faster fade-in */
 }
 body.loaded { opacity: 1; }
 
-/* ================= Hero Intro ================= */
+/* ================= Header ================= */
+header.site {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+
+header nav.links-left {
+  display: flex;
+  gap: 20px;
+}
+header nav.links-left a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+header nav.links-left a:hover {
+  color: #d2b48c;
+}
+
+header .brand {
+  font-family: 'Chomsky', serif;
+  font-size: 2rem;
+  color: #fff; /* white name */
+  text-decoration: none;
+}
+
+header nav.links-right {
+  display: flex;
+  gap: 15px;
+}
+header nav.links-right a img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(1) invert(1);
+}
+header nav.links-right a:hover img {
+  filter: brightness(1) invert(0.7);
+}
+
+/* ================= Hero Section (under header) ================= */
 .hero-intro {
-  height: 100vh;
+  height: 890px; /* exact section height */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,57 +95,6 @@ body.loaded { opacity: 1; }
 
 .hero-description.hide {
   opacity: 0;
-}
-
-/* ================= Header ================= */
-header.site {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  width: 100%;
-  box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 1000;
-}
-
-/* Page links on left */
-header nav.links-left {
-  display: flex;
-  gap: 20px;
-}
-header nav.links-left a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-}
-header nav.links-left a:hover {
-  color: #d2b48c;
-}
-
-/* Brand in header */
-header .brand {
-  font-family: 'Chomsky', serif;
-  font-size: 2rem;
-  color: #fff;
-  text-decoration: none;
-}
-
-/* Platform icons on right */
-header nav.links-right {
-  display: flex;
-  gap: 15px;
-}
-header nav.links-right a img {
-  width: 24px;
-  height: 24px;
-  filter: brightness(1) invert(1);
-}
-header nav.links-right a:hover img {
-  filter: brightness(1) invert(0.7);
 }
 
 /* ================= Centered Content Box ================= */
