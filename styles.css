@@ -28,6 +28,11 @@ header.site {
   padding: 10px 40px;
   width: 100%;
   box-sizing: border-box;
+  position: fixed;        /* stays at top */
+  top: 0;
+  left: 0;
+  z-index: 1000;          /* always above background */
+  background: rgba(0, 0, 0, 0.5); /* optional: translucent bar */
 }
 
 header nav.links-left {
@@ -72,6 +77,8 @@ header nav.links-right a:hover img {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
+  z-index: 1; /* keeps text above background */
 }
 .hero-name {
   font-family: 'Chomsky', serif;
@@ -83,7 +90,7 @@ header nav.links-right a:hover img {
 }
 .hero-description {
   font-family: 'Times New Roman', serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-top: 10px;
   opacity: 1;
   transition: opacity 0.4s ease;
@@ -98,15 +105,17 @@ header nav.links-right a:hover img {
   opacity: 0;
 }
 
-/* ================= Centered Content Box ================= */
+/* ================= Content Box ================= */
 .content-container {
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); /* slightly darker, still see bg */
   border-radius: 8px;
   line-height: 1.6;
   text-align: left;
+  position: relative;
+  z-index: 1; /* above background */
 }
 
 /* ================= Fade-in Content ================= */
