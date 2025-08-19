@@ -46,22 +46,21 @@
       <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
     </section>
 
-    <!-- Dummy content for scrolling -->
+    <!-- Dummy content so you can scroll -->
     <section>
       <h2>Scroll Test</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
     </section>
   </main>
 
   <!-- Scripts -->
   <script>
+    // Fade in page
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
     });
@@ -71,6 +70,7 @@
     const heroQuote = document.querySelector('.hero-quote');
     const headerBrand = document.querySelector('.brand');
 
+    // Scroll effect: shrink hero elements, show header brand
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const triggerPoint = 250;
@@ -88,7 +88,7 @@
       }
     });
 
-    // Hero quote hover effect for colorful background
+    // Hero quote hover effect for colorful background with smooth fade
     heroQuote.addEventListener('mouseenter', () => {
       document.body.classList.add('colorful-bg');
     });
