@@ -18,7 +18,8 @@
       <a href="david.html">David</a>
     </nav>
 
-    <a href="index.html" class="brand">BenGurWaves</a>
+    <!-- Header brand (hidden at start) -->
+    <a href="index.html" class="brand" style="opacity:0;">BenGurWaves</a>
 
     <nav class="links-right">
       <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
@@ -63,25 +64,18 @@
 
     const heroName = document.querySelector('.hero-name');
     const heroDesc = document.querySelector('.hero-description');
-    const header = document.querySelector('header.site');
     const headerBrand = document.querySelector('.brand');
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const triggerPoint = 250; // how far before header takes over
+      const fadePoint = 300; // how far before hero fades completely
 
-      if (scrollY < triggerPoint) {
-        // Hero is visible
-        heroName.style.transform = `scale(${1 - scrollY / 600})`;
-        heroDesc.style.opacity = 1 - scrollY / triggerPoint;
-        headerBrand.style.opacity = 0; // hide header brand until hero leaves
-      } else {
-        // Hero scrolled out
-        heroName.style.transform = "scale(0)";
-        heroDesc.style.opacity = 0;
-        headerBrand.style.opacity = 1; // show brand in header
-      }
-    });
-  </script>
-</body>
-</html>
+      // Fade hero text out
+      let opacityValue = 1 - scrollY / fadePoint;
+      if (opacityValue < 0) opacityValue = 0;
+      heroName.style.opacity = opacityValue;
+      heroDesc.style.opacity = opacityValue;
+
+      // Fade header brand in opposite
+      let brandOpacity = (scrollY - fadePoint / 2) / (fadePoint / 2);
+      if (brandOpacity < 0) brandOpacity = 0;
