@@ -2,16 +2,18 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('DSC_0021.JPG') no-repeat center center fixed;
+  background: url('IMG_0913.JPG') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Times New Roman', serif;
   color: #fff;
   text-align: center;
-  background-color: black;
+  background-color: black; /* fallback */
   opacity: 0;
-  transition: opacity 1s ease; /* faster than 2s */
+  transition: opacity 1.5s ease;
 }
-body.loaded { opacity: 1; }
+body.loaded {
+  opacity: 1;
+}
 
 /* ================= Header ================= */
 header.site {
@@ -24,8 +26,7 @@ header.site {
   position: fixed;
   top: 0;
   left: 0;
-  height: 80px; /* header height */
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
 
@@ -42,6 +43,15 @@ header nav.links-left a:hover {
   color: #d2b48c;
 }
 
+header .brand {
+  font-family: 'Chomsky', serif;
+  font-size: 2rem;
+  color: #fff; /* white name */
+  text-decoration: none;
+  opacity: 0; /* hidden until hero scrolls away */
+  transition: opacity 0.5s ease;
+}
+
 header nav.links-right {
   display: flex;
   gap: 15px;
@@ -49,6 +59,7 @@ header nav.links-right {
 header nav.links-right a img {
   width: 24px;
   height: 24px;
+  vertical-align: middle;
   filter: brightness(1) invert(1);
 }
 header nav.links-right a:hover img {
@@ -57,53 +68,42 @@ header nav.links-right a:hover img {
 
 /* ================= Hero Section ================= */
 .hero-intro {
-  height: 890px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
-
 .hero-name {
   font-family: 'Chomsky', serif;
   font-size: 5rem;
   color: #fff;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.8s ease, font-size 0.8s ease;
+  transition: transform 0.3s ease;
 }
-
 .hero-description {
   font-family: 'Times New Roman', serif;
   font-size: 1.5rem;
-  margin-top: 80px;
-  transition: opacity 0.8s ease;
+  margin-top: 10px;
+  transition: opacity 0.3s ease;
 }
 
-.hero-description.hide {
-  opacity: 0;
-}
-
-/* ================= Content Box ================= */
+/* ================= Centered Content Box ================= */
 .content-container {
   max-width: 1100px;
   margin: 40px auto;
   padding: 40px 20px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   line-height: 1.6;
   text-align: left;
 }
 
-/* ================= Fade-in ================= */
+/* ================= Fade-in Content ================= */
 .intro-fade {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.5s ease, transform 1.5s ease;
-  transition-delay: 2s;
+  transition-delay: 1s;
 }
 body.loaded .intro-fade {
   opacity: 1;
