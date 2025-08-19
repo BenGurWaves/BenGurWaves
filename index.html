@@ -87,3 +87,12 @@
   </script>
 </body>
 </html>
+const heroQuote = document.querySelector('.hero-quote');
+
+heroQuote.addEventListener('mouseenter', () => {
+  document.body.classList.add('colorful-bg');
+});
+
+heroQuote.addEventListener('mouseleave', () => {
+  document.body.classList.remove('colorful-bg');
+});
