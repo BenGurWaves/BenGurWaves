@@ -30,7 +30,6 @@ header.site {
   box-sizing: border-box;
 }
 
-/* Page links on the left */
 header nav.links-left {
   display: flex;
   gap: 20px;
@@ -44,15 +43,13 @@ header nav.links-left a:hover {
   color: #d2b48c; /* tan hover */
 }
 
-/* Brand (centered name in header) */
 header .brand {
   font-family: 'Chomsky', serif;
   font-size: 2rem;
-  color: #fff;           /* white text */
-  text-decoration: none; /* remove underline */
+  color: #fff;
+  text-decoration: none;
 }
 
-/* Platform icons on the right */
 header nav.links-right {
   display: flex;
   gap: 15px;
@@ -61,15 +58,15 @@ header nav.links-right a img {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  filter: brightness(1) invert(1); /* white icons */
+  filter: brightness(1) invert(1);
 }
 header nav.links-right a:hover img {
-  filter: brightness(1) invert(0.7); /* hover effect */
+  filter: brightness(1) invert(0.7);
 }
 
 /* ================= Hero Section ================= */
 .hero-intro {
-  height: 890px; /* tall intro section */
+  height: 890px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,24 +75,26 @@ header nav.links-right a:hover img {
 }
 .hero-name {
   font-family: 'Chomsky', serif;
-  font-size: 6rem; /* BIGGER than before */
+  font-size: 6rem;
   margin: 0;
   color: #fff;
-  transition: font-size 0.4s ease;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 .hero-description {
   font-family: 'Times New Roman', serif;
-  font-size: 1.2rem; /* SMALLER than before */
+  font-size: 1.2rem;
   margin-top: 10px;
   opacity: 1;
   transition: opacity 0.4s ease;
 }
 
-/* Shrink effects */
-.hero-name.shrink {
-  font-size: 2rem; /* shrinks into header size */
+/* ================= Fade-out on Scroll ================= */
+.fade-out {
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
-.hero-description.hide {
+.fade-out.hidden {
   opacity: 0;
 }
 
