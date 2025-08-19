@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>BenGurWaves — Home</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Small page-level styles for the Pre-Save button (hover effect) -->
+  <style>
+    .pre-save-btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      background: rgba(210,184,140,0.95); /* tan background by default */
+      color: #111; /* dark text by default */
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 200ms ease, color 200ms ease, transform 120ms ease;
+    }
+    .pre-save-btn:hover,
+    .pre-save-btn:focus {
+      background: #000;           /* black on hover/focus */
+      color: #d2b48c;            /* tan text on hover/focus */
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -53,7 +73,7 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background: url('Finally Home - The Album_Fotogenic.jpg') no-repeat center center fixed;
+      background: url('Copy%20of%20Finally%20Home%20-%20The%20Album%281%29.png') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     "
@@ -61,7 +81,7 @@
     <!-- semi-transparent overlay to keep text readable -->
     <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1;"></div>
 
-    <!-- content container (similar to your centered box) -->
+    <!-- content container -->
     <div style="position: relative; z-index: 2; max-width: 1100px; width: 100%; padding: 40px; display:flex; gap:30px; align-items:center; box-sizing:border-box;">
       <!-- Album thumbnail -->
       <div style="flex: 0 0 320px; display:flex; align-items:center; justify-content:center;">
@@ -81,8 +101,7 @@
         <p style="margin-top: 18px; font-weight:600;">Release Date: October 10, 2025</p>
 
         <p style="margin-top: 18px;">
-          <a href="releases.html"
-             style="display:inline-block; padding:12px 22px; border-radius:8px; background: rgba(210,184,140,0.95); color: #111; text-decoration:none; font-weight:700;">
+          <a href="releases.html" class="pre-save-btn" title="Pre-save Finally Home">
             Pre-Save
           </a>
         </p>
