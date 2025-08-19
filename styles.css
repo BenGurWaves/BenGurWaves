@@ -1,16 +1,22 @@
 /* ================= Full Background & Body ================= */
+html {
+  height: 100%;
+  background: url('DSC_0021.JPG') no-repeat center center fixed;
+  background-size: cover;
+  background-color: black; /* fallback */
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: url('IMG_0913.JPG') no-repeat center center fixed;
-  background-size: cover;
   font-family: 'Times New Roman', serif;
   color: #fff;
   text-align: center;
-  background-color: black; /* fallback */
+  min-height: 100%;
   opacity: 0;
   transition: opacity 1.5s ease;
 }
+
 body.loaded {
   opacity: 1;
 }
