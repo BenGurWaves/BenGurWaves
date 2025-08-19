@@ -19,6 +19,9 @@
       <a href="david.html">David</a>
     </nav>
 
+    <!-- Header hero name (small, fades in after scroll) -->
+    <a href="index.html" class="brand header-hero">BenGurWaves</a>
+
     <nav class="links-right">
       <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
       <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
@@ -38,65 +41,12 @@
 
   <!-- Main Content -->
   <main class="site content-container intro-fade">
-    <!-- Featured -->
     <section>
       <h2>Featured</h2>
       <p>Check out my latest release, video, or project!</p>
       <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
     </section>
 
-    <!-- Placeholder sections for scrolling -->
-    <section>
-      <h2>Section 1</h2><p>Test content repeated...</p>
-    </section>
-    
-    <section>
-      <h2>Section 2</h2><p>Test content repeated...</p>
-    </section>
-    
-    <section>
-      <h2>Section 3</h2><p>Test content repeated...</p>
-    </section>
-    
-    <section>
-      <h2>Section 4</h2><p>Test content repeated...</p></section>
-    <section><h2>Section 5</h2><p>Test content repeated...</p></section>
-    <section><h2>Section 6</h2><p>Test content repeated...</p></section>
-  </main>
-
-  <!-- JavaScript -->
-  <script>
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-    });
-
-    const heroName = document.querySelector('.hero-name');
-    const heroDesc = document.querySelector('.hero-description');
-    const heroSection = document.querySelector('.hero-intro');
-    const header = document.querySelector('header.site');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const start = heroSection.offsetTop;
-      const end = header.offsetTop + header.offsetHeight / 2 - heroName.offsetHeight / 2;
-
-      // progress 0 = start, 1 = reached header
-      const maxScroll = start + 400; // adjust scroll length
-      let progress = scrollY / maxScroll;
-      if(progress > 1) progress = 1;
-
-      // Shrink font size
-      const minFont = 2;
-      const maxFont = 5;
-      heroName.style.fontSize = (maxFont - (maxFont - minFont) * progress) + 'rem';
-
-      // Move vertically smoothly using translate
-      const translateY = (end - start) * progress;
-      heroName.style.transform = `translateY(${translateY}px)`;
-
-      // Fade description
-      heroDesc.style.opacity = 1 - progress;
-    });
-  </script>
-</body>
-</html>
+    <!-- Extra content just to test scrolling -->
+    <section><h2>Section 1</h2><p>Lots of scrolling text here...</p></section>
+    <section><h2>Section 2</h2
