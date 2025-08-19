@@ -1,61 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BenGurWaves</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BenGurWaves — Home</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.cdnfonts.com/css/chomsky" rel="stylesheet">
 </head>
 <body>
-  <!-- ================= Header ================= -->
+  <!-- Header -->
   <header class="site">
     <nav class="links-left">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="music.html">Music</a>
-      <a href="contact.html">Contact</a>
+      <a href="releases.html">Releases</a>
+      <a href="merch.html">Merch</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="me.html">Me</a>
+      <a href="david.html">David</a>
     </nav>
 
     <a href="index.html" class="brand">BenGurWaves</a>
 
     <nav class="links-right">
-      <a href="#"><img src="icons/facebook.svg" alt="Facebook"></a>
-      <a href="#"><img src="icons/instagram.svg" alt="Instagram"></a>
-      <a href="#"><img src="icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
+      <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/@ben_gur_waves"><img src="tiktok-48.png" alt="TikTok"></a>
+      <a href="https://vimeo.com/bengurwaves"><img src="icons8-vimeo.svg" alt="Vimeo"></a>
+      <a href="https://rumble.com/bengurwaves"><img src="Rumble--Streamline-Simple-Icons.svg" alt="Rumble"></a>
+      <a href="https://soundcloud.com/bengurwaves"><img src="icons8-soundcloud-logo.svg" alt="SoundCloud"></a>
+      <a href="https://bengurwaves.bandcamp.com/"><img src="icons8-bandcamp.svg" alt="Bandcamp"></a>
     </nav>
   </header>
 
-  <!-- ================= Hero Section ================= -->
+  <!-- Hero Section -->
   <section class="hero-intro">
     <h1 class="hero-name">BenGurWaves</h1>
     <p class="hero-description">Pianist, Composer, Storyteller</p>
     <p class="hero-quote">“The piano gives you black and white, but the challenge is to make every color heard.”</p>
   </section>
 
-  <!-- ================= Content Section ================= -->
-  <div class="content-container intro-fade">
-    <h2>Welcome</h2>
-    <p>
-      This is just placeholder text so you can test scrolling. 
-      Keep adding sections, stories, or music previews here. 
-      Eventually this will be your living portfolio and story hub. 🎶
-    </p>
-    <p>
-      Add more text, images, or embedded tracks so the page grows 
-      and scrolling shows off the background effects properly.
-    </p>
-  </div>
+  <!-- Main Content -->
+  <main class="site content-container intro-fade">
+    <section>
+      <h2>Featured</h2>
+      <p>Check out my latest release, video, or project!</p>
+      <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
+    </section>
 
-  <!-- ================= Scripts ================= -->
+    <!-- Dummy content so you can scroll -->
+    <section>
+      <h2>Scroll Test</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+    </section>
+  </main>
+
+  <!-- Scripts -->
   <script>
-    // Fade in page
-    window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
     });
 
-    // Background color swap on quote hover
+    const heroName = document.querySelector('.hero-name');
+    const heroDesc = document.querySelector('.hero-description');
     const heroQuote = document.querySelector('.hero-quote');
+    const headerBrand = document.querySelector('.brand');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const triggerPoint = 250;
+
+      if(scrollY < triggerPoint){
+        heroName.style.transform = `scale(${1 - scrollY / 600})`;
+        heroDesc.style.opacity = 1 - scrollY / triggerPoint;
+        heroQuote.style.opacity = 1 - scrollY / triggerPoint;
+        headerBrand.style.opacity = 0;
+      } else {
+        heroName.style.transform = "scale(0)";
+        heroDesc.style.opacity = 0;
+        heroQuote.style.opacity = 0;
+        headerBrand.style.opacity = 1;
+      }
+    });
+
+    // Hero quote hover effect for colorful background
     heroQuote.addEventListener('mouseenter', () => {
       document.body.classList.add('colorful-bg');
     });
