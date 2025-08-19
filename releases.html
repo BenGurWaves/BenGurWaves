@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BenGurWaves — Releases</title>
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Page-level styles (buttons, sheet cards, small responsive helpers).
+       Kept local so this page looks right even if styles.css differs. -->
+  <style>
+    /* Buttons */
+    .pre-save-btn, .listen-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: rgba(210,184,140,0.95);
+      color:#111; font-weight:700; text-decoration:none;
+      transition: background .18s ease, color .18s ease, transform .12s ease;
+    }
+    .pre-save-btn:hover, .listen-btn:hover,
+    .pre-save-btn:focus, .listen-btn:focus {
+      background:#000; color:#d2b48c; transform: translateY(-2px);
+    }
+
+    /* Featured card container */
+    .featured-inner {
+      position: relative; z-index:2; max-width:1100px; width:100%;
+      padding:40px; display:flex; gap:30px; align-items:center; box-sizing:border-box;
+    }
+    .featured-thumb { flex:0 0 320px; display:flex; align-items:center; justify-content:center; }
+    .featured-thumb img { max-width:100%; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,.6); }
+
+    /* Releases card area */
+    .release-card { display:flex; gap:24px; align-items:center; width:100%; }
+    .release-thumb { flex:0 0 260px; }
+    .release-thumb img { width:100%; border-radius:6px; box-shadow:0 6px 18px rgba(0,0,0,.45); }
+    .release-info { flex:1 1 auto; color:#fff; }
+
+    /* Sheet music card styles (same as home) */
+    .sheet-section { min-height:890px; display:flex; align-items:center; justify-content:center; background:#101010; position:relative; }
+    .sheet-container { max-width:1100px; width:100%; padding:40px; box-sizing:border-box; display:flex; justify-content:center; align-items:center; }
+    .sheet-cards { position:relative; width:760px; height:420px; display:flex; justify-content:center; align-items:center; gap:0; }
+    .sheet-card { --card-w:300px; --card-h:380px; position:absolute; width:var(--card-w); height:var(--card-h); border-radius:8px; overflow:hidden; box-shadow:0 18px 40px rgba(0,0,0,.6); transform-origin:center top; transition:transform .42s cubic-bezier(.2,.9,.2,1), left .42s, top .42s, filter .42s; background:#111; border:1px solid rgba(255,255,255,.03); }
+    .sheet-card img { width:100%; height:100%; object-fit:cover; display:block; filter: saturate(.98) contrast(.98) brightness(.98); transform:scale(1.02); transition:transform .42s, filter .42s; }
+    .sheet-card.center { z-index:30; left:calc(50% - var(--card-w)/2); top:0; transform: rotate(0deg); }
+    .sheet-card.left { z-index:20; left: calc(50% - var(--card-w) - 28px); top:28px; transform: rotate(-10deg); clip-path: inset(0 60% 0 0); }
+    .sheet-card.right { z-index:20; left: calc(50% + 28px); top:28px; transform: rotate(10deg); clip-path: inset(0 0 0 60%); }
+    .sheet-cards:hover .sheet-card.left { left: calc(50% - var(--card-w) - 60px); top:-6px; transform: rotate(-6deg) translateY(-6px); clip-path: inset(0 30% 0 0); }
+    .sheet-cards:hover .sheet-card.right { left: calc(50% + 60px); top:-6px; transform: rotate(6deg) translateY(-6px); clip-path: inset(0 0 0 30%); }
+    .sheet-cards:hover .sheet-card img { transform: scale(1.03); filter: saturate(1.02) contrast(1.03) brightness(1); }
+    .sheet-card:hover { transform: translateY(-8px) scale(1.01) rotate(0deg); z-index:60; clip-path: inset(0 0 0 0); }
+    .sheet-label { margin-top:14px; color:rgba(255,255,255,.9); font-family:'Times New Roman', serif; font-size:.95rem; text-align:center; }
+
+    /* small responsive helper */
+    @media (max-width:860px) {
+      .featured-inner, .release-card { flex-direction:column; text-align:center; gap:18px; }
+      .featured-thumb, .release-thumb { width: 72%; max-width:360px; }
+      .sheet-cards { width: 92%; height: 320px; }
+      .sheet-card { --card-w:240px; --card-h:300px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header (same as Home but Brand ALWAYS visible plain white Chomsky text) -->
+  <header class="site" role="banner" style="position:sticky; top:0; z-index:1000; background: rgba(0,0,0,0.45);">
+    <nav class="links-left" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="releases.html" class="current">Releases</a>
+      <a href="merch.html">Merch</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="me.html">Me</a>
+      <a href="david.html">David</a>
+    </nav>
+
+    <a href="index.html" class="brand" style="font-family:'Chomsky', serif; color:#fff; text-decoration:none; font-size:1.5rem;">BenGurWaves</a>
+
+    <nav class="links-right" aria-label="Social links">
+      <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
+      <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/@ben_gur_waves"><img src="tiktok-48.png" alt="TikTok"></a>
+      <a href="https://vimeo.com/bengurwaves"><img src="icons8-vimeo.svg" alt="Vimeo"></a>
+      <a href="https://rumble.com/bengurwaves"><img src="Rumble--Streamline-Simple-Icons.svg" alt="Rumble"></a>
+      <a href="https://soundcloud.com/bengurwaves"><img src="icons8-soundcloud-logo.svg" alt="SoundCloud"></a>
+      <a href="https://bengurwaves.bandcamp.com/"><img src="icons8-bandcamp.svg" alt="Bandcamp"></a>
+    </nav>
+  </header>
+
+  <!-- ========== Featured section (copied from Home) ========== -->
+  <section id="featured" aria-label="Featured — Finally Home" style="min-height:890px; display:flex; align-items:center; justify-content:center; background: url('Copy%20of%20Finally%20Home%20-%20The%20Album%281%29.png') no-repeat center center fixed; background-size:cover; position:relative;">
+    <div style="position:absolute; inset:0; background: rgba(0,0,0,0.45); z-index:1;"></div>
+
+    <div class="featured-inner" style="position:relative; z-index:2;">
+      <div class="featured-thumb">
+        <img src="Finally Home Thumb (Best Reso).jpg" alt="Finally Home — thumbnail">
+      </div>
+      <div style="flex:1 1 auto; color:#fff; text-align:left;">
+        <h2 style="font-family:'Chomsky', serif; font-size:2.4rem; margin:0 0 6px 0;">Finally Home - The Album</h2>
+        <p style="margin:0 0 12px 0; font-family:'Times New Roman', serif; font-size:1rem; opacity:0.9;">- BenGurWaves</p>
+
+        <p style="margin-top:6px; color:rgba(255,255,255,0.95); line-height:1.6; max-width:700px;">
+          <strong>Finally Home</strong> is my story. Each piece, or song, is a part of who I have been.
+          Every part of the album carries my worries, fears, joys, sadness, and struggles. I wrote this album in sweat, tears, and countless late nights. This is my album… no, correction, this is me.
+        </p>
+
+        <p style="margin-top:18px; font-weight:600;">Release Date: October 10, 2025</p>
+
+        <p style="margin-top:18px;">
+          <a href="#single" class="pre-save-btn" title="Pre-save Finally Home">Pre-Save</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Single section (copied from Home) ========== -->
+  <section id="single" aria-label="Latest Single" style="min-height:890px; display:flex; align-items:center; justify-content:center; position:relative; background: none;">
+    <div style="position:relative; z-index:2; max-width:1100px; width:100%; padding:40px; box-sizing:border-box;">
+      <div class="release-card">
+        <div class="release-thumb">
+          <img src="Screen%20Shot%202025-06-29%20at%203.57.42%20PM%20copy.png" alt="The Absent Waltz — thumbnail">
+        </div>
+
+        <div class="release-info">
+          <h3 style="margin:0 0 6px 0; font-family:'Chomsky', serif; font-size:1.6rem;" class="release-heading">Latest Single</h3>
+
+          <p class="release-title" style="margin:0 0 10px 0; font-family:'Times New Roman', serif; font-weight:700; font-size:1.05rem;">
+            The Absent Waltz – A Waltz In E Minor | Original Piano Composition
+          </p>
+
+          <p class="release-description" style="margin:0 0 12px 0; color:rgba(255,255,255,0.95); line-height:1.6; max-width:820px;">
+            The Absent Waltz is a gentle piano solo that drifts like a memory half-remembered. With a waltz rhythm softened by emotion, it carries a bittersweet calm — like dancing alone in a quiet, empty room. Each note feels both distant and close, inviting reflection and stillness.
+          </p>
+
+          <p style="margin-top:12px;">
+            <a href="#sheet-music" class="listen-btn" title="Listen Now — The Absent Waltz">Listen Now</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Sheet Music section (copied from Home) ========== -->
+  <section id="sheet-music" class="sheet-section" aria-label="Sheet Music">
+    <div class="sheet-container">
+      <div>
+        <div class="sheet-cards" tabindex="0" aria-label="Sheet music examples (click to open sheet music releases)">
+          <div class="sheet-card left" role="button">
+            <a href="#sheet-music" title="Open sheet music - left"><img src="Screen%20Shot%202025-08-19%20at%204.29.10%20PM.png" alt="Sheet 1"></a>
+          </div>
+          <div class="sheet-card center" role="button">
+            <a href="#sheet-music" title="Open sheet music - center"><img src="Screen%20Shot%202025-08-19%20at%204.29.44%20PM.png" alt="Sheet 2"></a>
+          </div>
+          <div class="sheet-card right" role="button">
+            <a href="#sheet-music" title="Open sheet music - right"><img src="Screen%20Shot%202025-08-19%20at%204.30.02%20PM.png" alt="Sheet 3"></a>
+          </div>
+        </div>
+        <div class="sheet-label">Sheet Music — hover the artwork to fan them out</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Small script: add loaded class for fade and simple focus handling -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+
+    // Make sheet-cards keyboard-accessible: pressing Enter while focused will activate center link
+    (function(){
+      const sc = document.querySelector('.sheet-cards');
+      if(!sc) return;
+      sc.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') {
+          // open sheet-music anchor (stays on page)
+          location.hash = '#sheet-music';
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
