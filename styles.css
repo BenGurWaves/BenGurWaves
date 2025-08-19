@@ -1,53 +1,30 @@
 /* ================= Full Background & Body ================= */
-html, body {
+html {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  background: url('DSC_1391_Mono.JPG.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: black;
 }
 
-/* Background handled with pseudo-elements for fade effect */
 body {
-  position: relative;
+  margin: 0;
+  padding: 0;
   font-family: 'Times New Roman', serif;
   color: #fff;
   text-align: center;
   min-height: 100%;
   opacity: 0;
-  transition: opacity 1.5s ease; /* page fade-in */
-  overflow-x: hidden;
+  transition: opacity 1s ease; /* faster fade-in */
 }
 body.loaded {
   opacity: 1;
 }
 
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+/* Colorful background toggle */
+body.colorful-bg {
+  background: url('DSC_1391.JPG') no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  z-index: -2;
-  transition: opacity 1.5s ease;
-}
-
-body::before {
-  background-image: url('DSC_1391_Mono.JPG.png'); /* default B/W */
-  opacity: 1;
-}
-
-body::after {
-  background-image: url('DSC_1391.JPG'); /* colorful */
-  opacity: 0;
-}
-
-/* When hovering the quote, fade in the colorful background */
-body.colorful-bg::after {
-  opacity: 1;
-}
-body.colorful-bg::before {
-  opacity: 0;
+  transition: background 0.5s ease;
 }
 
 /* ================= Header ================= */
@@ -58,8 +35,6 @@ header.site {
   padding: 10px 40px;
   width: 100%;
   box-sizing: border-box;
-  position: relative;
-  z-index: 1;
 }
 
 header nav.links-left {
@@ -72,7 +47,7 @@ header nav.links-left a {
   font-weight: 500;
 }
 header nav.links-left a:hover {
-  color: #d2b48c; /* tan hover */
+  color: #d2b48c;
 }
 
 header .brand {
@@ -80,6 +55,7 @@ header .brand {
   font-size: 2rem;
   color: #fff;
   text-decoration: none;
+  transition: opacity 0.3s ease;
 }
 
 header nav.links-right {
@@ -104,31 +80,34 @@ header nav.links-right a:hover img {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
+
 .hero-name {
   font-family: 'Chomsky', serif;
   font-size: 6rem;
   margin: 0;
   color: #fff;
+  opacity: 1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
+
 .hero-description {
   font-family: 'Times New Roman', serif;
   font-size: 1.2rem;
   margin-top: 10px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
+
 .hero-quote {
   font-family: 'Times New Roman', serif;
-  font-size: 1rem;
-  margin-top: 15px;
-  font-style: italic;
-  opacity: 0.8;
+  font-size: 3rem; /* between name and description */
+  margin-top: 20px;
+  max-width: 800px;
+  line-height: 1.3;
+  color: #fff;
+  transition: opacity 0.4s ease;
   cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-.hero-quote:hover {
-  opacity: 1;
 }
 
 /* ================= Centered Content Box ================= */
@@ -140,8 +119,6 @@ header nav.links-right a:hover img {
   border-radius: 8px;
   line-height: 1.6;
   text-align: left;
-  position: relative;
-  z-index: 1;
 }
 
 /* ================= Fade-in Content ================= */
@@ -154,4 +131,12 @@ header nav.links-right a:hover img {
 body.loaded .intro-fade {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ================= Responsive for Phones ================= */
+@media only screen and (max-width: 768px) {
+  .hero-name { font-size: 4rem; }
+  .hero-description { font-size: 1rem; }
+  .hero-quote { font-size: 2rem; max-width: 90%; }
+  header nav.links-left, header nav.links-right { gap: 10px; }
 }
