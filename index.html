@@ -6,26 +6,22 @@
   <title>BenGurWaves — Home</title>
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Small page-level styles for the Pre-Save and Listen buttons (hover effect) -->
+  <!-- Small page-level styles for the Pre-Save and Listen buttons (hover effect)
+       and a tiny responsive helper for the release card -->
   <style>
     .pre-save-btn {
       display: inline-block;
       padding: 12px 22px;
       border-radius: 8px;
-      background: rgba(210,184,140,0.95); /* tan background by default */
-      color: #111; /* dark text by default */
+      background: rgba(210,184,140,0.95);
+      color: #111;
       text-decoration: none;
       font-weight: 700;
       transition: background 200ms ease, color 200ms ease, transform 120ms ease;
     }
     .pre-save-btn:hover,
-    .pre-save-btn:focus {
-      background: #000;           /* black on hover/focus */
-      color: #d2b48c;            /* tan text on hover/focus */
-      transform: translateY(-2px);
-    }
+    .pre-save-btn:focus { background:#000; color:#d2b48c; transform: translateY(-2px); }
 
-    /* Reuse style for Releases button but slightly different sizing */
     .listen-btn {
       display: inline-block;
       padding: 10px 18px;
@@ -37,13 +33,9 @@
       transition: background 200ms ease, color 200ms ease, transform 120ms ease;
     }
     .listen-btn:hover,
-    .listen-btn:focus {
-      background: #000;
-      color: #d2b48c;
-      transform: translateY(-2px);
-    }
+    .listen-btn:focus { background:#000; color:#d2b48c; transform: translateY(-2px); }
 
-    /* Small responsive helper: stack thumbnail above text on narrow screens */
+    /* responsive helper for release card if screen is narrow */
     @media (max-width: 860px) {
       .release-card { flex-direction: column; gap: 18px; align-items: center; text-align: center; }
       .release-card .thumb { flex: 0 0 auto; max-width: 320px; }
@@ -103,17 +95,14 @@
       position: relative;
     "
   >
-    <!-- semi-transparent overlay to keep text readable -->
+    <!-- overlay to keep text readable -->
     <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1;"></div>
 
-    <!-- content container (similar to your centered box) -->
+    <!-- featured content -->
     <div style="position: relative; z-index: 2; max-width: 1100px; width: 100%; padding: 40px; display:flex; gap:30px; align-items:center; box-sizing:border-box;">
-      <!-- Album thumbnail -->
       <div style="flex: 0 0 320px; display:flex; align-items:center; justify-content:center;">
         <img src="Finally Home Thumb (Best Reso).jpg" alt="Finally Home — thumbnail" style="max-width:100%; height:auto; border-radius:8px; box-shadow: 0 6px 20px rgba(0,0,0,0.6);">
       </div>
-
-      <!-- Album info -->
       <div style="flex: 1 1 auto; color:#fff; text-align:left;">
         <h2 style="font-family: 'Chomsky', serif; font-size: 2.4rem; margin: 0 0 6px 0;">Finally Home - The Album</h2>
         <p style="margin: 0 0 12px 0; font-family: 'Times New Roman', serif; font-size: 1rem; opacity: 0.9;">- BenGurWaves</p>
@@ -126,47 +115,58 @@
         <p style="margin-top: 18px; font-weight:600;">Release Date: October 10, 2025</p>
 
         <p style="margin-top: 18px;">
-          <a href="releases.html" class="pre-save-btn" title="Pre-save Finally Home">
-            Pre-Save
-          </a>
+          <a href="releases.html" class="pre-save-btn" title="Pre-save Finally Home">Pre-Save</a>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <main class="site content-container intro-fade">
-    <!-- Releases section (new) -->
-    <section class="releases-section" aria-label="Releases" style="margin-bottom: 32px;">
-      <div class="release-card" style="display:flex; gap:24px; align-items:center;">
-        <!-- Thumbnail (square) -->
-        <div class="thumb" style="flex:0 0 200px;">
+  <!-- Releases Section (NEW: full-screen, uses main site bg, no special image) -->
+  <section
+    class="releases-full"
+    aria-label="Releases"
+    style="
+      min-height: 890px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position: relative;
+      background: none; /* uses site's main background */
+    "
+  >
+    <!-- subtle overlay/box area similar to content-container -->
+    <div style="position: relative; z-index: 2; max-width: 1100px; width:100%; padding: 40px; box-sizing:border-box; display:flex; align-items:center; gap:28px;">
+      <!-- release card centered inside the full-screen section -->
+      <div class="release-card" style="display:flex; gap:24px; align-items:center; width:100%;">
+        <!-- square thumbnail -->
+        <div class="thumb" style="flex:0 0 260px;">
           <img src="Screen%20Shot%202025-06-29%20at%203.57.42%20PM%20copy.png" alt="The Absent Waltz — thumbnail" style="width:100%; height:auto; border-radius:6px; box-shadow: 0 6px 18px rgba(0,0,0,0.45);">
         </div>
 
-        <!-- Info -->
-        <div class="info" style="flex:1 1 auto;">
-          <h3 style="margin:0 0 6px 0; font-family:'Chomsky', serif; font-size:1.4rem;">Latest Single</h3>
+        <!-- info -->
+        <div class="info" style="flex:1 1 auto; color:#fff;">
+          <h3 style="margin:0 0 6px 0; font-family:'Chomsky', serif; font-size:1.6rem;">Latest Single</h3>
 
           <!-- EXACT title (unchanged) -->
-          <p style="margin:0 0 10px 0; font-family:'Times New Roman', serif; font-weight:700;">
+          <p style="margin:0 0 10px 0; font-family:'Times New Roman', serif; font-weight:700; font-size:1.05rem;">
             The Absent Waltz – A Waltz In E Minor | Original Piano Composition
           </p>
 
-          <!-- Description (DO NOT EDIT — pasted verbatim as requested) -->
+          <!-- Description (VERBATIM as requested) -->
           <p style="margin:0 0 12px 0; color:rgba(255,255,255,0.95); line-height:1.6; max-width:820px;">
             The Absent Waltz is a gentle piano solo that drifts like a memory half-remembered. With a waltz rhythm softened by emotion, it carries a bittersweet calm — like dancing alone in a quiet, empty room. Each note feels both distant and close, inviting reflection and stillness.
           </p>
 
-          <!-- Button to Releases page -->
-          <p style="margin-top:8px;">
+          <p style="margin-top:12px;">
             <a href="releases.html" class="listen-btn" title="Listen Now — The Absent Waltz">Listen Now</a>
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Existing small Featured block kept for backwards compatibility -->
+  <!-- Main Content (keeps the earlier small Featured block and scrollable content) -->
+  <main class="site content-container intro-fade">
     <section>
       <h2>Featured</h2>
       <p>Check out my latest release, video, or project!</p>
