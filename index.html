@@ -6,56 +6,46 @@
   <title>BenGurWaves — Home</title>
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Page-level styles (keeps your existing CSS untouched) -->
+  <!-- Page-level styles (kept local so this page looks right even if styles.css differs) -->
   <style>
-    /* Pre-save + Listen button styles (kept from before) */
-    .pre-save-btn {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 8px;
+    /* Pre-save + Listen button styles */
+    .pre-save-btn, .listen-btn {
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:8px;
       background: rgba(210,184,140,0.95);
-      color: #111;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background 200ms ease, color 200ms ease, transform 120ms ease;
+      color:#111;
+      text-decoration:none;
+      font-weight:700;
+      transition: background .18s ease, color .18s ease, transform .12s ease;
     }
-    .pre-save-btn:hover,
-    .pre-save-btn:focus { background:#000; color:#d2b48c; transform: translateY(-2px); }
-
-    .listen-btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      background: rgba(210,184,140,0.95);
-      color: #111;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background 200ms ease, color 200ms ease, transform 120ms ease;
-    }
-    .listen-btn:hover,
-    .listen-btn:focus { background:#000; color:#d2b48c; transform: translateY(-2px); }
-
-    /* small responsive helper for card stacking */
-    @media (max-width: 860px) {
-      .release-card { flex-direction: column; gap: 18px; align-items: center; text-align: center; }
-      .release-card .thumb { flex: 0 0 auto; max-width: 320px; }
-      .release-card .info { text-align: center; }
-      .sheet-cards { gap: 12px; }
+    .pre-save-btn:hover, .listen-btn:hover,
+    .pre-save-btn:focus, .listen-btn:focus {
+      background:#000; color:#d2b48c; transform: translateY(-2px);
     }
 
-    /* Releases color fallback */
+    /* Small responsive helper */
+    @media (max-width:860px){
+      .featured-inner, .release-card { flex-direction:column; text-align:center; gap:18px; }
+      .featured-thumb, .release-thumb { width:72%; max-width:360px; }
+      .sheet-cards { width:92%; height:320px; }
+      .sheet-card { --card-w:240px; --card-h:300px; }
+    }
+
+    /* Releases text fallback */
     .release-heading, .release-title, .release-description {
       color: rgb(255,255,255);
       transition: color 180ms linear;
     }
 
-    /* ================= Sheet Music cards ================= */
+    /* ========================= Sheet Music cards (updated) ========================= */
     .sheet-section {
       min-height: 890px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #101010; /* slightly not-black per request */
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      /* no special background — inherit page background */
+      background: none;
       position: relative;
     }
 
@@ -64,21 +54,22 @@
       width: 100%;
       padding: 40px;
       box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
     .sheet-cards {
       position: relative;
-      width: 760px;               /* total visual area for the three cards */
+      width: 760px;
       height: 420px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
       gap: 0;
       pointer-events: auto;
-      cursor: default;
+      /* ensure no weird background gaps */
+      overflow: visible;
     }
 
     .sheet-card {
@@ -94,12 +85,14 @@
       transition: transform 420ms cubic-bezier(.2,.9,.2,1), left 420ms cubic-bezier(.2,.9,.2,1), top 420ms cubic-bezier(.2,.9,.2,1), filter 420ms ease;
       background: #111;
       border: 1px solid rgba(255,255,255,0.03);
+      /* ensure edges don't create visible "slice" artifacts */
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
 
-    /* image inside card */
     .sheet-card img {
-      width: 100%;
-      height: 100%;
+      width:100%;
+      height:100%;
       object-fit: cover;
       display:block;
       /* subtle filter to mask screenshot artifacts */
@@ -108,41 +101,40 @@
       transition: transform 420ms ease, filter 420ms ease;
     }
 
-    /* positions: center (top-most), left, right (slightly below and rotated) */
+    /* center card sits on top so it covers center area (side cards behind it) */
     .sheet-card.center {
       z-index: 30;
-      left: calc(50% -  var(--card-w) / 2);
+      left: calc(50% - var(--card-w) / 2);
       top: 0;
       transform: rotate(0deg) translateY(0);
     }
+
+    /* side cards sit slightly lower and behind the center card so they peek out */
     .sheet-card.left {
       z-index: 20;
-      left: calc(50% -  var(--card-w) - 28px);
-      top: 28px;
+      left: calc(50% - var(--card-w) - 36px);
+      top: 28px;                     /* slightly below the center */
       transform: rotate(-10deg) translateY(0);
-      clip-path: inset(0 60% 0 0); /* show only a thin slice by default */
     }
     .sheet-card.right {
       z-index: 20;
-      left: calc(50% + 28px);
-      top: 28px;
+      left: calc(50% + 36px);
+      top: 28px;                     /* slightly below the center */
       transform: rotate(10deg) translateY(0);
-      clip-path: inset(0 0 0 60%); /* show only a thin slice by default */
     }
 
-    /* hover: when hovering the group, side cards pull out more */
+    /* hover: side cards fan out a bit more and lift up (no clip-path) */
     .sheet-cards:hover .sheet-card.left {
-      left: calc(50% - var(--card-w) - 60px);
+      left: calc(50% - var(--card-w) - 86px);
       top: -6px;
       transform: rotate(-6deg) translateY(-6px);
-      clip-path: inset(0 30% 0 0);
     }
     .sheet-cards:hover .sheet-card.right {
-      left: calc(50% + 60px);
+      left: calc(50% + 86px);
       top: -6px;
       transform: rotate(6deg) translateY(-6px);
-      clip-path: inset(0 0 0 30%);
     }
+
     .sheet-cards:hover .sheet-card.center img,
     .sheet-cards:hover .sheet-card.left img,
     .sheet-cards:hover .sheet-card.right img {
@@ -150,11 +142,10 @@
       filter: saturate(1.02) contrast(1.03) brightness(1);
     }
 
-    /* when hover on an individual card slightly lift it */
-    .sheet-card:hover { transform: translateY(-8px) scale(1.01) rotate(0deg); z-index: 60; clip-path: inset(0 0 0 0); }
+    /* when hover on an individual card slightly lift it and bring forward */
+    .sheet-card:hover { transform: translateY(-8px) scale(1.01) rotate(0deg); z-index: 60; }
     .sheet-card:hover img { transform: scale(1.04); }
 
-    /* small caption under cards */
     .sheet-label {
       margin-top: 14px;
       color: rgba(255,255,255,0.9);
@@ -274,12 +265,12 @@
     </div>
   </section>
 
-  <!-- Sheet Music Section (NEW full-screen) -->
+  <!-- Sheet Music Section (fixed: no clip-path, no black background) -->
   <section class="sheet-section" aria-label="Sheet Music">
     <div class="sheet-container">
       <div>
         <div class="sheet-cards" tabindex="0" aria-label="Sheet music examples (click to open sheet music releases)">
-          <!-- left card (partially hidden) -->
+          <!-- left card (partly hidden behind center) -->
           <div class="sheet-card left" role="button">
             <a href="releases.html#sheet-music" title="Open sheet music - left">
               <img src="Screen%20Shot%202025-08-19%20at%204.29.10%20PM.png" alt="Sheet 1">
@@ -293,7 +284,7 @@
             </a>
           </div>
 
-          <!-- right card (partially hidden) -->
+          <!-- right card (partly hidden behind center) -->
           <div class="sheet-card right" role="button">
             <a href="releases.html#sheet-music" title="Open sheet music - right">
               <img src="Screen%20Shot%202025-08-19%20at%204.30.02%20PM.png" alt="Sheet 3">
@@ -306,7 +297,7 @@
     </div>
   </section>
 
-  <!-- Main Content: keep earlier featured block + scrollable content -->
+  <!-- Main Content (keeps the earlier small Featured block and scrollable content) -->
   <main class="site content-container intro-fade">
     <section>
       <h2>Featured</h2>
@@ -331,7 +322,7 @@
       requestAnimationFrame(updateReleaseTextColors);
     });
 
-    /* hero quote hover (unchanged) */
+    /* hero quote hover effect */
     const heroQuoteWrapper = document.querySelector('.hero-quote-wrapper');
     heroQuoteWrapper && heroQuoteWrapper.addEventListener('mouseenter', () => {
       document.body.classList.add('colorful-bg');
@@ -340,7 +331,7 @@
       document.body.classList.remove('colorful-bg');
     });
 
-    /* hero shrink behavior (unchanged) */
+    /* hero shrink logic (unchanged) */
     const heroName = document.querySelector('.hero-name');
     const heroDesc = document.querySelector('.hero-description');
     const headerBrand = document.querySelector('.brand');
@@ -361,7 +352,7 @@
       }
     });
 
-    /* ---------------- Releases text color fade (title + heading + desc) ---------------- */
+    /* ---------------- Releases text color fade logic ---------------- */
     const releaseHeading = document.querySelector('.release-heading'); // "Latest Single"
     const releaseTitle = document.querySelector('.release-title');     // track title
     const releaseDesc = document.querySelector('.release-description'); // description
@@ -384,21 +375,17 @@
     }
 
     function updateReleaseTextColors(){
-      // guard
       if(!releaseTitle && !releaseDesc && !releaseHeading) return;
+      const triggerY = window.innerHeight / 3;
 
-      const triggerY = window.innerHeight / 3; // top 1/3 line
-
-      // heading (Latest Single) fades earlier than title
       if (releaseHeading){
         const rectH = releaseHeading.getBoundingClientRect();
-        const startH = triggerY + 260;  // heading starts changing earlier (further below)
-        const endH   = triggerY - 20;   // finish when above
+        const startH = triggerY + 260;
+        const endH   = triggerY - 20;
         const pH = clamp((startH - rectH.top) / (startH - endH), 0, 1);
         releaseHeading.style.color = colorFromProgress(pH);
       }
 
-      // title
       if (releaseTitle){
         const rectT = releaseTitle.getBoundingClientRect();
         const startT = triggerY + 200;
@@ -407,7 +394,6 @@
         releaseTitle.style.color = colorFromProgress(pT);
       }
 
-      // description lags a bit
       if (releaseDesc){
         const rectD = releaseDesc.getBoundingClientRect();
         const startD = triggerY + 60;
@@ -417,7 +403,6 @@
       }
     }
 
-    // throttle with RAF
     let ticking = false;
     function onScrollRAF(){
       if(!ticking){
@@ -431,18 +416,14 @@
     window.addEventListener('scroll', onScrollRAF);
     window.addEventListener('resize', onScrollRAF);
 
-    // initial run after fonts/images load
     setTimeout(() => requestAnimationFrame(updateReleaseTextColors), 300);
     setTimeout(() => requestAnimationFrame(updateReleaseTextColors), 1100);
 
-    /* ---------------- Sheet cards accessible interactions ---------------- */
+    /* ---------------- Sheet cards interactions (touch + keyboard) ---------------- */
     const sheetCards = document.querySelector('.sheet-cards');
-    // keyboard focus will also expand
     sheetCards && sheetCards.addEventListener('focus', () => sheetCards.classList.add('focused'));
     sheetCards && sheetCards.addEventListener('blur', () => sheetCards.classList.remove('focused'));
-    // add class on hover to animate (CSS :hover handles most), keep JS for touch fallback
     sheetCards && sheetCards.addEventListener('touchstart', () => sheetCards.classList.add('touched'), {passive:true});
-    // remove touched after a short delay on touchend
     sheetCards && sheetCards.addEventListener('touchend', () => setTimeout(()=> sheetCards && sheetCards.classList.remove('touched'), 350));
   </script>
 </body>
