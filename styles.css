@@ -33,12 +33,12 @@ body::after {
 }
 
 body::before {
-  background-image: url('DSC_0021_mono.png'); /* default B/W */
+  background-image: url('DSC_1391_Mono.JPG.png'); /* default B/W */
   opacity: 1;
 }
 
 body::after {
-  background-image: url('DSC_0021.JPG'); /* colorful */
+  background-image: url('DSC_1391.JPG'); /* colorful */
   opacity: 0;
 }
 
