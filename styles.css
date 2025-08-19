@@ -14,9 +14,8 @@ body {
   text-align: center;
   min-height: 100%;
   opacity: 0;
-  transition: opacity 1.5s ease;
+  transition: opacity 1.5s ease; /* fade speed */
 }
-
 body.loaded {
   opacity: 1;
 }
@@ -29,13 +28,9 @@ header.site {
   padding: 10px 40px;
   width: 100%;
   box-sizing: border-box;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
 }
 
+/* Page links on the left */
 header nav.links-left {
   display: flex;
   gap: 20px;
@@ -46,18 +41,18 @@ header nav.links-left a {
   font-weight: 500;
 }
 header nav.links-left a:hover {
-  color: #d2b48c;
+  color: #d2b48c; /* tan hover */
 }
 
+/* Brand (centered name in header) */
 header .brand {
   font-family: 'Chomsky', serif;
   font-size: 2rem;
-  color: #fff; /* white name */
-  text-decoration: none;
-  opacity: 0; /* hidden until hero scrolls away */
-  transition: opacity 0.5s ease;
+  color: #fff;           /* white text */
+  text-decoration: none; /* remove underline */
 }
 
+/* Platform icons on the right */
 header nav.links-right {
   display: flex;
   gap: 15px;
@@ -66,31 +61,42 @@ header nav.links-right a img {
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  filter: brightness(1) invert(1);
+  filter: brightness(1) invert(1); /* white icons */
 }
 header nav.links-right a:hover img {
-  filter: brightness(1) invert(0.7);
+  filter: brightness(1) invert(0.7); /* hover effect */
 }
 
 /* ================= Hero Section ================= */
 .hero-intro {
-  height: 100vh;
+  height: 890px; /* tall intro section */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .hero-name {
   font-family: 'Chomsky', serif;
-  font-size: 5rem;
+  font-size: 6rem; /* BIGGER than before */
+  margin: 0;
   color: #fff;
-  transition: transform 0.3s ease;
+  transition: font-size 0.4s ease;
 }
 .hero-description {
   font-family: 'Times New Roman', serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* SMALLER than before */
   margin-top: 10px;
-  transition: opacity 0.3s ease;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Shrink effects */
+.hero-name.shrink {
+  font-size: 2rem; /* shrinks into header size */
+}
+.hero-description.hide {
+  opacity: 0;
 }
 
 /* ================= Centered Content Box ================= */
@@ -109,7 +115,7 @@ header nav.links-right a:hover img {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1.5s ease, transform 1.5s ease;
-  transition-delay: 1s;
+  transition-delay: 2s;
 }
 body.loaded .intro-fade {
   opacity: 1;
