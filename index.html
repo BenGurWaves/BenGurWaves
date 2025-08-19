@@ -79,3 +79,9 @@
       // Fade header brand in opposite
       let brandOpacity = (scrollY - fadePoint / 2) / (fadePoint / 2);
       if (brandOpacity < 0) brandOpacity = 0;
+      if (brandOpacity > 1) brandOpacity = 1;
+      headerBrand.style.opacity = brandOpacity;
+    });
+  </script>
+</body>
+</html>
