@@ -18,8 +18,7 @@
       <a href="david.html">David</a>
     </nav>
 
-    <!-- Header brand (hidden at start) -->
-    <a href="index.html" class="brand" style="opacity:0;">BenGurWaves</a>
+    <a href="index.html" class="brand">BenGurWaves</a>
 
     <nav class="links-right">
       <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
@@ -34,11 +33,10 @@
 
   <!-- Hero Section -->
   <section class="hero-intro">
-  <h1 class="hero-name">BenGurWaves</h1>
-  <p class="hero-description">Pianist, Composer, Storyteller</p>
-  <p class="hero-quote">"When life gives you black and white, turn it into color."</p>
+    <h1 class="hero-name">BenGurWaves</h1>
+    <p class="hero-description">Pianist, Composer, Storyteller</p>
+    <p class="hero-quote">“When life gives you black and white, turn it into color.”</p>
   </section>
-
 
   <!-- Main Content -->
   <main class="site content-container intro-fade">
@@ -66,33 +64,32 @@
 
     const heroName = document.querySelector('.hero-name');
     const heroDesc = document.querySelector('.hero-description');
+    const header = document.querySelector('header.site');
     const headerBrand = document.querySelector('.brand');
+    const heroQuote = document.querySelector('.hero-quote');
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      const fadePoint = 300; // how far before hero fades completely
+      const triggerPoint = 250;
 
-      // Fade hero text out
-      let opacityValue = 1 - scrollY / fadePoint;
-      if (opacityValue < 0) opacityValue = 0;
-      heroName.style.opacity = opacityValue;
-      heroDesc.style.opacity = opacityValue;
+      if (scrollY < triggerPoint) {
+        heroName.style.transform = `scale(${1 - scrollY / 600})`;
+        heroDesc.style.opacity = 1 - scrollY / triggerPoint;
+        headerBrand.style.opacity = 0;
+      } else {
+        heroName.style.transform = "scale(0)";
+        heroDesc.style.opacity = 0;
+        headerBrand.style.opacity = 1;
+      }
+    });
 
-      // Fade header brand in opposite
-      let brandOpacity = (scrollY - fadePoint / 2) / (fadePoint / 2);
-      if (brandOpacity < 0) brandOpacity = 0;
-      if (brandOpacity > 1) brandOpacity = 1;
-      headerBrand.style.opacity = brandOpacity;
+    // Background color effect when hovering the quote
+    heroQuote.addEventListener('mouseenter', () => {
+      document.body.classList.add('colorful-bg');
+    });
+    heroQuote.addEventListener('mouseleave', () => {
+      document.body.classList.remove('colorful-bg');
     });
   </script>
 </body>
 </html>
-const heroQuote = document.querySelector('.hero-quote');
-
-heroQuote.addEventListener('mouseenter', () => {
-  document.body.classList.add('colorful-bg');
-});
-
-heroQuote.addEventListener('mouseleave', () => {
-  document.body.classList.remove('colorful-bg');
-});
