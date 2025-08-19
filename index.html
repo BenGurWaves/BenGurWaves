@@ -32,16 +32,65 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-intro">
+  <section class="hero-intro" aria-label="Hero">
     <h1 class="hero-name">BenGurWaves</h1>
     <p class="hero-description">Pianist, Composer, Storyteller</p>
     <div class="hero-quote-wrapper">
-      <p class="hero-quote">“The piano gives you black and white, but the challenge is to make every color heard.”</p>
+      <p class="hero-quote">
+        “The piano gives you black and white,<br>
+        but the challenge is to make every color heard.”
+      </p>
       <p class="hero-quote-subtext">(Hover here to see it come alive)</p>
     </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Featured Section (full-screen like hero) -->
+  <section
+    class="featured-section"
+    aria-label="Featured — Finally Home"
+    style="
+      min-height: 890px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: url('Finally Home - The Album_Fotogenic.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    "
+  >
+    <!-- semi-transparent overlay to keep text readable -->
+    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1;"></div>
+
+    <!-- content container (similar to your centered box) -->
+    <div style="position: relative; z-index: 2; max-width: 1100px; width: 100%; padding: 40px; display:flex; gap:30px; align-items:center; box-sizing:border-box;">
+      <!-- Album thumbnail -->
+      <div style="flex: 0 0 320px; display:flex; align-items:center; justify-content:center;">
+        <img src="Finally Home Thumb (Best Reso).jpg" alt="Finally Home — thumbnail" style="max-width:100%; height:auto; border-radius:8px; box-shadow: 0 6px 20px rgba(0,0,0,0.6);">
+      </div>
+
+      <!-- Album info -->
+      <div style="flex: 1 1 auto; color:#fff; text-align:left;">
+        <h2 style="font-family: 'Chomsky', serif; font-size: 2.4rem; margin: 0 0 6px 0;">Finally Home - The Album</h2>
+        <p style="margin: 0 0 12px 0; font-family: 'Times New Roman', serif; font-size: 1rem; opacity: 0.9;">- BenGurWaves</p>
+
+        <p style="margin-top: 6px; color: rgba(255,255,255,0.95); line-height:1.6; max-width: 700px;">
+          <strong>Finally Home</strong> is my story. Each piece, or song, is a part of who I have been.
+          Every part of the album carries my worries, fears, joys, sadness, and struggles. I wrote this album in sweat, tears, and countless late nights. This is my album… no, correction, this is me.
+        </p>
+
+        <p style="margin-top: 18px; font-weight:600;">Release Date: October 10, 2025</p>
+
+        <p style="margin-top: 18px;">
+          <a href="releases.html"
+             style="display:inline-block; padding:12px 22px; border-radius:8px; background: rgba(210,184,140,0.95); color: #111; text-decoration:none; font-weight:700;">
+            Pre-Save
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content (kept as before; you can add more sections below) -->
   <main class="site content-container intro-fade">
     <section>
       <h2>Featured</h2>
@@ -59,7 +108,7 @@
     </section>
   </main>
 
-  <!-- Scripts -->
+  <!-- Scripts (unchanged) -->
   <script>
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
