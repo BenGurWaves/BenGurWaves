@@ -24,7 +24,7 @@ body.loaded {
 body.colorful-bg {
   background: url('DSC_1391_Color.png') no-repeat center center fixed;
   background-size: cover;
-  transition: background 1s ease; /* smoother fade instead of jump */
+  transition: background 1s ease; /* smooth fade for color */
 }
 
 /* ================= Header ================= */
@@ -99,10 +99,9 @@ header nav.links-right a:hover img {
   transition: opacity 0.4s ease;
 }
 
-/* ================= Hero Quote ================= */
 .hero-quote {
   font-family: 'Times New Roman', serif;
-  font-size: 10px; /* reduced from 70px */
+  font-size: 35px; /* reduced size */
   margin-top: 20px;
   max-width: 800px;
   line-height: 1.3;
@@ -111,9 +110,8 @@ header nav.links-right a:hover img {
   cursor: pointer;
 }
 
-/* On hover, smoothly fade colorful background without resizing quote */
 .hero-quote:hover {
-  font-size: 10px; /* keep same size to prevent glitch */
+  font-size: 35px; /* prevent glitch */
 }
 
 /* ================= Centered Content Box ================= */
@@ -139,30 +137,10 @@ body.loaded .intro-fade {
   transform: translateY(0);
 }
 
-/* ================= Fade-out on Scroll (Hero) ================= */
-.fade-out {
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
-.fade-out.hidden {
-  opacity: 0;
-}
-
 /* ================= Responsive for Phones ================= */
 @media only screen and (max-width: 768px) {
   .hero-name { font-size: 4rem; }
   .hero-description { font-size: 1rem; }
-  .hero-quote { font-size: 1.5rem; max-width: 90%; }
+  .hero-quote { font-size: 2rem; max-width: 90%; }
   header nav.links-left, header nav.links-right { gap: 10px; }
-}
-
-/* ================= New Additions ================= */
-/* Smooth opacity fade for scroll effects */
-.hero-quote.fade-scroll {
-  transition: opacity 0.5s ease;
-}
-
-/* Smooth shrink class for hero name */
-.hero-name.shrink {
-  transform: scale(0.8);
 }
