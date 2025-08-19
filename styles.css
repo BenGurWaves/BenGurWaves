@@ -101,7 +101,7 @@ header nav.links-right a:hover img {
 
 .hero-quote {
   font-family: 'Times New Roman', serif;
-  font-size: 3rem; /* between name and description */
+  font-size: 70px; 
   margin-top: 20px;
   max-width: 800px;
   line-height: 1.3;
