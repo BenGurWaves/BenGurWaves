@@ -35,7 +35,7 @@
   <section class="hero-intro">
     <h1 class="hero-name">BenGurWaves</h1>
     <p class="hero-description">Pianist, Composer, Storyteller</p>
-    <p class="hero-quote">“When life gives you black and white, turn it into color.”</p>
+    <p class="hero-quote">The piano gives you black and white, but it’s your hands that make the colors heard.</p>
   </section>
 
   <!-- Main Content -->
@@ -46,44 +46,24 @@
       <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
     </section>
 
-    <!-- Dummy content so you can scroll -->
     <section>
       <h2>Scroll Test</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum...</p>
     </section>
   </main>
 
   <!-- Script -->
   <script>
+    // Page fade-in
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
     });
 
-    const heroName = document.querySelector('.hero-name');
-    const heroDesc = document.querySelector('.hero-description');
-    const header = document.querySelector('header.site');
-    const headerBrand = document.querySelector('.brand');
+    // Quote hover effect (background swap)
     const heroQuote = document.querySelector('.hero-quote');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const triggerPoint = 250;
-
-      if (scrollY < triggerPoint) {
-        heroName.style.transform = `scale(${1 - scrollY / 600})`;
-        heroDesc.style.opacity = 1 - scrollY / triggerPoint;
-        headerBrand.style.opacity = 0;
-      } else {
-        heroName.style.transform = "scale(0)";
-        heroDesc.style.opacity = 0;
-        headerBrand.style.opacity = 1;
-      }
-    });
-
-    // Background color effect when hovering the quote
     heroQuote.addEventListener('mouseenter', () => {
       document.body.classList.add('colorful-bg');
     });
