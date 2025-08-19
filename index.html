@@ -6,7 +6,6 @@
   <title>BenGurWaves — Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <!-- Header -->
   <header class="site">
@@ -19,8 +18,7 @@
       <a href="david.html">David</a>
     </nav>
 
-    <!-- Header hero name (small, fades in after scroll) -->
-    <a href="index.html" class="brand header-hero">BenGurWaves</a>
+    <a href="index.html" class="brand">BenGurWaves</a>
 
     <nav class="links-right">
       <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
@@ -47,6 +45,43 @@
       <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
     </section>
 
-    <!-- Extra content just to test scrolling -->
-    <section><h2>Section 1</h2><p>Lots of scrolling text here...</p></section>
-    <section><h2>Section 2</h2
+    <!-- Dummy content so you can scroll -->
+    <section>
+      <h2>Scroll Test</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et ligula quis justo semper bibendum. Donec feugiat, sapien a gravida dapibus, justo lorem dapibus nisl, sit amet pharetra elit neque vitae dolor. Praesent consequat orci nec turpis hendrerit, ac feugiat orci blandit.</p>
+    </section>
+  </main>
+
+  <!-- Script -->
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const heroName = document.querySelector('.hero-name');
+    const heroDesc = document.querySelector('.hero-description');
+    const header = document.querySelector('header.site');
+    const headerBrand = document.querySelector('.brand');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const triggerPoint = 250; // how far before header takes over
+
+      if (scrollY < triggerPoint) {
+        // Hero is visible
+        heroName.style.transform = `scale(${1 - scrollY / 600})`;
+        heroDesc.style.opacity = 1 - scrollY / triggerPoint;
+        headerBrand.style.opacity = 0; // hide header brand until hero leaves
+      } else {
+        // Hero scrolled out
+        heroName.style.transform = "scale(0)";
+        heroDesc.style.opacity = 0;
+        headerBrand.style.opacity = 1; // show brand in header
+      }
+    });
+  </script>
+</body>
+</html>
