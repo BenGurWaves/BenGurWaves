@@ -14,13 +14,15 @@ body {
   text-align: center;
   min-height: 100%;
   opacity: 0;
-  transition: opacity 1s ease; /* faster fade-in */
+  transition: opacity 1s ease;
+  position: relative;
+  overflow-x: hidden;
 }
 body.loaded {
   opacity: 1;
 }
 
-/* Colorful background toggle via pseudo-element */
+/* Colorful background overlay for smooth fade */
 body::before {
   content: '';
   position: fixed;
@@ -32,7 +34,7 @@ body::before {
   background-size: cover;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.8s ease; /* smooth fade */
   z-index: -1;
 }
 body.colorful-bg::before {
