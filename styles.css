@@ -225,6 +225,15 @@ body.loaded .intro-fade {
   color: black;
 }
 
+/* For gallery images */
+transform: translateZ(0) scale3d(1.02,1.02,1);
+backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+-moz-transform: translate3d(0,0,0);
+-webkit-transform: translate3d(0,0,0);
+opacity:0.999; /* subtle hack for Firefox repaint */
+will-change: transform, filter, opacity;
+
 /* Lightbox */
 .lightbox {
   position: fixed;
