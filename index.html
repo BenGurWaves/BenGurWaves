@@ -210,8 +210,14 @@
       transition: transform .35s ease;
       cursor:pointer;
       isolation:isolate;
+      transform-origin:center;            /* <-- added so rotation/scale happen around center */
+      will-change: transform;             /* <-- hint to browser for smoother composition */
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
-    .gallery-item:hover{ transform:rotate(0deg) scale(1.01); z-index:3; }
+    /* Preserve rotation value on hover and only scale — don't reset rotation to 0 */
+    .gallery-item:hover{ transform: rotate(var(--rot, 0deg)) scale(1.01); z-index:3; }
+
     .gallery-item img{
       position:absolute; inset:0;
       width:100%; height:100%; object-fit:cover;
@@ -223,7 +229,8 @@
       transform: translateZ(0);
       user-select:none;
     }
-    .gallery-item:hover img{ filter:none; transform:scale(1.05); }
+    /* Slightly reduced scale on the image itself to avoid excessive combined scaling */
+    .gallery-item:hover img{ filter:none; transform:scale(1.03); }
     .gallery-item::after{
       content: attr(data-desc);
       position:absolute; left:12px; bottom:12px;
