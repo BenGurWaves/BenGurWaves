@@ -461,8 +461,8 @@
   </div>
 
   <!-- Scripts -->
-  <script>
-  /* ================= Gallery hover & click (preload fix to prevent color flicker) ================= */
+ <script>
+  /* ================= Gallery hover & click (CSS-first approach: use color src + CSS filter) ================= */
   (function(){
     const items = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox'); // kept if you want to use later
@@ -470,38 +470,30 @@
     const lbDesc = document.querySelector('.lightbox-desc');
     const lbClose = document.querySelector('.lightbox-close');
 
-    // PRELOAD color images so swapping src on hover doesn't flicker
-    const preloads = [];
-    items.forEach(item => {
-      const colorSrc = item.getAttribute('data-color');
-      if (colorSrc) {
-        const p = new Image();
-        p.src = colorSrc;
-        preloads.push(p);
-      }
-    });
-
-    // Now set up behavior (keeps your existing src-swapping logic)
+    // PRELOAD color images so hover is instant (and set img.src to color)
     items.forEach(item => {
       const img = item.querySelector('img');
       const bw = item.getAttribute('data-bw') || img.getAttribute('src');
       const color = item.getAttribute('data-color') || bw;
       const id = item.getAttribute('data-id') || 'top';
 
-      // Start with B&W (from markup)
-      img.src = bw;
+      // Preload color
+      if (color) {
+        const p = new Image();
+        p.src = color;
+      }
 
-      // Use pointer events where supported (more reliable across touch + mouse)
-      item.addEventListener('pointerenter', () => { img.src = color; });
-      item.addEventListener('pointerleave', () => { img.src = bw; });
+      // Ensure the DOM <img> uses the COLOR image (so hover is just a CSS filter change)
+      // This avoids swapping src on hover which causes flicker.
+      img.src = color;
 
-      // Click = go to gallery page and anchor
+      // Keep click behavior: navigate to gallery anchor
       item.addEventListener('click', () => {
         window.location.href = `gallery.html#${encodeURIComponent(id)}`;
       });
     });
 
-    // Lightbox handlers (kept, unused on click by default)
+    // Lightbox handlers (kept, unused by default)
     if(lbClose){
       lbClose.addEventListener('click', () => lightbox.classList.remove('active'));
       lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('active'); });
