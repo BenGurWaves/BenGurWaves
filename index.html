@@ -604,6 +604,7 @@
     /* ---------------- Sheet cards interactions (touch + keyboard) ---------------- */
     const sheetCards = document.querySelector('.sheet-cards');
     sheetCards && sheetCards.addEventListener('focus', () => sheetCards.classList.add('focused'));
+    sheetCards && sheetCards.classList.add('focused')
     sheetCards && sheetCards.addEventListener('blur', () => sheetCards.classList.remove('focused'));
     sheetCards && sheetCards.addEventListener('touchstart', () => sheetCards.classList.add('touched'), {passive:true});
     sheetCards && sheetCards.addEventListener('touchend', () => setTimeout(()=> sheetCards && sheetCards.classList.remove('touched'), 350));
