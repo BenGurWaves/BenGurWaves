@@ -316,11 +316,93 @@
       <h2>Featured</h2>
       <p>Check out my latest release, video, or project!</p>
       <a href="releases.html" style="color: var(--accent); text-decoration: underline;">Listen Now</a>
+        </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+      <h2 class="gallery-title">Gallery</h2>
+      <div class="gallery-grid">
+        <!-- Image 1 -->
+        <div class="gallery-item" data-color="Frustration_Thumbnail_Color.jpg" data-desc="Frustration — taken by David Ivanyuck">
+          <img src="Frustration_Thumbnail_B&W.png" alt="Frustration">
+        </div>
+
+        <!-- Image 2 -->
+        <div class="gallery-item" data-color="Finally Home Thumb (Best Reso).jpg" data-desc="Finally Home Album Art — drawn by Abigail Gurzhiy">
+          <img src="727ac10d-e5d5-4d50-a5d1-e4de2c65c331.png" alt="Finally Home">
+        </div>
+
+        <!-- Image 3 -->
+        <div class="gallery-item" data-color="The_Absent_Waltz_Color.png" data-desc="The Absent Waltz — taken by David Ivanyuck">
+          <img src="The_Absent_Waltz_B&W.png" alt="The Absent Waltz">
+        </div>
+
+        <!-- Image 4 -->
+        <div class="gallery-item" data-color="P1070449.JPG" data-desc="Gentle Resonance — taken by David Ivanyuck">
+          <img src="6fa2cdce-373a-4099-985b-6146d77dffb1.png" alt="Gentle Resonance">
+        </div>
+      </div>
+
+      <a href="gallery.html" class="gallery-btn">More Pics</a>
     </section>
   </main>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-desc"></p>
+  </div>
+
+
   <!-- Scripts -->
+  
   <script>
+        // Gallery hover & lightbox
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxDesc = document.querySelector('.lightbox-desc');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const colorSrc = item.getAttribute('data-color');
+        item.querySelector('img').src = colorSrc;
+      });
+
+      item.addEventListener('mouseleave', () => {
+        const bwSrc = item.querySelector('img').getAttribute('alt');
+        if(item.getAttribute('data-color').includes('Frustration')) {
+          item.querySelector('img').src = 'Frustration_Thumbnail_B&W.png';
+        } else if(item.getAttribute('data-color').includes('Finally Home')) {
+          item.querySelector('img').src = '727ac10d-e5d5-4d50-a5d1-e4de2c65c331.png';
+        } else if(item.getAttribute('data-color').includes('Absent')) {
+          item.querySelector('img').src = 'The_Absent_Waltz_B&W.png';
+        } else {
+          item.querySelector('img').src = '6fa2cdce-373a-4099-985b-6146d77dffb1.png';
+        }
+      });
+
+      item.addEventListener('click', () => {
+        const colorSrc = item.getAttribute('data-color');
+        const desc = item.getAttribute('data-desc');
+        lightboxImg.src = colorSrc;
+        lightboxDesc.textContent = desc;
+        lightbox.classList.add('active');
+      });
+    });
+
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) {
+        lightbox.classList.remove('active');
+      }
+    });
+
     window.addEventListener("load", () => {
       document.body.classList.add("loaded");
       requestAnimationFrame(updateReleaseTextColors);
