@@ -275,3 +275,44 @@ will-change: transform, filter, opacity;
   color: white;
   cursor: pointer;
 }
+ /* ================= Fix horizontal scroll ================= */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* ================= Gallery image Firefox hover glitch fix ================= */
+.gallery-item img {
+  transform: translateZ(0);          /* trigger GPU rendering */
+  backface-visibility: hidden;       /* prevent black flashes */
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  will-change: transform, filter, opacity;
+}
+
+/* Slightly smaller hover scale for smoother GPU render */
+.gallery-item img:hover {
+  transform: scale(1.03);
+}
+
+/* ================= Gallery responsiveness ================= */
+.gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* adapt to mobile */
+}
+
+/* ================= Hero & content container responsive fixes ================= */
+.hero-intro, .content-container {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* ensure no extra scroll */
+}
+
+/* ================= Mobile adjustments ================= */
+@media only screen and (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-gap: 1rem;
+  }
+  .hero-intro { height: auto; padding: 20px 10px; }
+  .content-container { padding: 20px 10px; margin: 20px auto; }
+}
