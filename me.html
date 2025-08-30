@@ -6,43 +6,65 @@
   <title>Me - BenGurWaves</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Bio layout */
-    .bio-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .bio-title {
-      flex: 1 1 250px;
-      font-weight: bold;
-      font-size: 1.8rem;
-      color: #fff;
-      text-align: left;
-    }
-    .bio-text {
-      flex: 3 1 600px;
-      font-size: 1rem;
-      line-height: 1.6;
+    /* Full-page video background */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'DM Sans', sans-serif;
+      background: #111;
       color: #ddd;
     }
+    .load-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .bio-container {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .bio-title, .bio-text {
-        flex: 1 1 100%;
-        text-align: left;
-      }
+    header.site, footer {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Bio container with sticky title */
+    .bio-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 20px;
+    }
+    .bio-title {
+      flex: 1;
+      font-weight: bold;
+      font-size: 2rem;
+      position: sticky;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .bio-title span {
+      color: #fff;
+    }
+    .bio-texts {
+      flex: 3;
+      padding-left: 40px;
+    }
+    .bio-text {
+      margin-bottom: 100px;
+      font-size: 1rem;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
+
+  <video class="load-video" autoplay muted loop playsinline>
+    <source src="BenGurWavesLoadvid.mp4" type="video/mp4">
+  </video>
 
   <header class="site">
     <nav class="links-left">
@@ -67,21 +89,22 @@
     </nav>
   </header>
 
-  <main class="content-container intro-fade">
+  <main>
     <div class="bio-container">
-      <div class="bio-title">BenGurWaves: Artist Bio</div>
-      <div class="bio-text">
-        BenGurWaves, the musical project of 16-year-old Ben Gur, officially began in March 2025, marking the start of an ambitious journey into sound and storytelling. Born with an innate connection to music, Ben’s earliest compositions were experimental and raw, reflecting the natural growing pains of an artist finding his voice. By summer 2025, he had released ten tracks, each a testament to his dedication and rapidly developing skill. These initial releases captured the essence of his evolving sound: cinematic, emotive, and deeply personal.
-
-        In July 2025, after months of intensive work, Ben took a brief pause to reflect on his artistic direction. This moment of introspection proved transformative. Shifting his focus from merely crafting music to creating art, he began to approach composition as storytelling — each note, chord, and rhythm carrying emotion, narrative, and imagery. What had started as a hobby quickly evolved into a life’s pursuit.
-
-        Following this turning point, BenGurWaves released the album Six Views, a conceptual work exploring the subtle transitions of light and emotion. Each track corresponds to a different “view,” moving from the warm, golden tones of View I – Amber Veil to the dark, contemplative glow of View VI – Afterlight. The album weaves cinematic textures, piano-driven melodies, and atmospheric layers, offering listeners a journey through shifting landscapes of sound and feeling. Critics and listeners alike praised the album for its ability to evoke vivid imagery and emotional resonance, establishing BenGurWaves as a rising talent with a distinct artistic voice.
-
-        Looking ahead, BenGurWaves is preparing to release Finally Home in October 2025, an album that chronicles his personal growth and artistic evolution. The project blends intimate piano passages with layered instrumentation and ambient textures, reflecting themes of self-discovery, perseverance, and the search for belonging. This album is not just a collection of songs — it is a narrative, an immersive experience designed to connect listeners to the emotional core of Ben’s journey.
-
-        Beyond his albums, BenGurWaves’ approach to music emphasizes authenticity, experimentation, and storytelling. His compositions are crafted to resonate with both casual listeners and dedicated music enthusiasts, bridging the gap between technical mastery and emotional accessibility. Whether through solo piano pieces, cinematic arrangements, or complex soundscapes, Ben continues to explore the boundaries of his craft, always seeking to create art that speaks as much to the heart as to the ear.
-
-        BenGurWaves’ story is still unfolding, but his trajectory is clear: an artist whose commitment, vision, and talent have positioned him as a promising voice in contemporary instrumental music. From his earliest experiments to his most recent works, every note carries the promise of something more — a journey not just through sound, but through life itself.
+      <div class="bio-title"><span>BenGurWaves: Artist Bio</span></div>
+      <div class="bio-texts">
+        <div class="bio-text">
+          BenGurWaves, the musical project of 16-year-old Ben Gur, officially began in March 2025, marking the start of an ambitious journey into sound and storytelling. Born with an innate connection to music, Ben’s earliest compositions were experimental and raw, reflecting the natural growing pains of an artist finding his voice. By summer 2025, he had released ten tracks, each a testament to his dedication and rapidly developing skill. These initial releases captured the essence of his evolving sound: cinematic, emotive, and deeply personal.
+        </div>
+        <div class="bio-text">
+          In July 2025, after months of intensive work, Ben took a brief pause to reflect on his artistic direction. This moment of introspection proved transformative. Shifting his focus from merely crafting music to creating art, he began to approach composition as storytelling — each note, chord, and rhythm carrying emotion, narrative, and imagery. What had started as a hobby quickly evolved into a life’s pursuit.
+        </div>
+        <div class="bio-text">
+          Following this turning point, BenGurWaves released the album Six Views, a conceptual work exploring the subtle transitions of light and emotion. Each track corresponds to a different “view,” moving from the warm, golden tones of View I – Amber Veil to the dark, contemplative glow of View VI – Afterlight. The album weaves cinematic textures, piano-driven melodies, and atmospheric layers, offering listeners a journey through shifting landscapes of sound and feeling.
+        </div>
+        <div class="bio-text">
+          Looking ahead, BenGurWaves is preparing to release Finally Home in October 2025, an album that chronicles his personal growth and artistic evolution. The project blends intimate piano passages with layered instrumentation and ambient textures, reflecting themes of self-discovery, perseverance, and the search for belonging.
+        </div>
       </div>
     </div>
   </main>
@@ -92,9 +115,18 @@
   </footer>
 
   <script>
-    // trigger fade-in on page load
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
+    // Scroll-trigger text change
+    const title = document.querySelector('.bio-title span');
+    const texts = ['Artist Bio', 'Life Bio', 'Musical Bio'];
+    const bioSections = document.querySelectorAll('.bio-text');
+    
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const sectionHeight = window.innerHeight; 
+      
+      let index = Math.floor(scrollY / sectionHeight);
+      if (index >= texts.length) index = texts.length - 1;
+      title.textContent = `BenGurWaves: ${texts[index]}`;
     });
   </script>
 
