@@ -3,30 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Me - Test</title>
+  <title>Me - BenGurWaves</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Bio layout */
+    .bio-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .bio-title {
+      flex: 1 1 250px;
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: #fff;
+      text-align: left;
+    }
+    .bio-text {
+      flex: 3 1 600px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .bio-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .bio-title, .bio-text {
+        flex: 1 1 100%;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="intro-fade">
-    <a href="index.html" class="brand">David</a>
-    <nav>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="me.html" class="current">Me</a>
-        <a href="music.html">Music</a>
-        <a href="contact.html">Contact</a>
-      </div>
+
+  <header class="site">
+    <nav class="links-left">
+      <a href="index.html">Home</a>
+      <a href="releases.html">Releases</a>
+      <a href="merch.html">Merch</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="me.html" class="current">Me</a>
+      <a href="david.html">David</a>
+    </nav>
+
+    <a href="index.html" class="brand">BenGurWaves</a>
+
+    <nav class="links-right">
+      <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
+      <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
+      <a href="https://www.tiktok.com/@ben_gur_waves"><img src="tiktok-48.png" alt="TikTok"></a>
+      <a href="https://vimeo.com/bengurwaves"><img src="icons8-vimeo.svg" alt="Vimeo"></a>
+      <a href="https://rumble.com/bengurwaves"><img src="Rumble--Streamline-Simple-Icons.svg" alt="Rumble"></a>
+      <a href="https://soundcloud.com/bengurwaves"><img src="icons8-soundcloud-logo.svg" alt="SoundCloud"></a>
+      <a href="https://bengurwaves.bandcamp.com/"><img src="icons8-bandcamp.svg" alt="Bandcamp"></a>
     </nav>
   </header>
 
   <main class="content-container intro-fade">
-    <h1>Testing Me Page</h1>
-    <p>If you see this text centered in a transparent box over the background, then everything is working fine.</p>
+    <div class="bio-container">
+      <div class="bio-title">BenGurWaves: Artist Bio</div>
+      <div class="bio-text">
+        BenGurWaves, the musical project of 16-year-old Ben Gur, officially began in March 2025, marking the start of an ambitious journey into sound and storytelling. Born with an innate connection to music, Ben’s earliest compositions were experimental and raw, reflecting the natural growing pains of an artist finding his voice. By summer 2025, he had released ten tracks, each a testament to his dedication and rapidly developing skill. These initial releases captured the essence of his evolving sound: cinematic, emotive, and deeply personal.
+
+        In July 2025, after months of intensive work, Ben took a brief pause to reflect on his artistic direction. This moment of introspection proved transformative. Shifting his focus from merely crafting music to creating art, he began to approach composition as storytelling — each note, chord, and rhythm carrying emotion, narrative, and imagery. What had started as a hobby quickly evolved into a life’s pursuit.
+
+        Following this turning point, BenGurWaves released the album Six Views, a conceptual work exploring the subtle transitions of light and emotion. Each track corresponds to a different “view,” moving from the warm, golden tones of View I – Amber Veil to the dark, contemplative glow of View VI – Afterlight. The album weaves cinematic textures, piano-driven melodies, and atmospheric layers, offering listeners a journey through shifting landscapes of sound and feeling. Critics and listeners alike praised the album for its ability to evoke vivid imagery and emotional resonance, establishing BenGurWaves as a rising talent with a distinct artistic voice.
+
+        Looking ahead, BenGurWaves is preparing to release Finally Home in October 2025, an album that chronicles his personal growth and artistic evolution. The project blends intimate piano passages with layered instrumentation and ambient textures, reflecting themes of self-discovery, perseverance, and the search for belonging. This album is not just a collection of songs — it is a narrative, an immersive experience designed to connect listeners to the emotional core of Ben’s journey.
+
+        Beyond his albums, BenGurWaves’ approach to music emphasizes authenticity, experimentation, and storytelling. His compositions are crafted to resonate with both casual listeners and dedicated music enthusiasts, bridging the gap between technical mastery and emotional accessibility. Whether through solo piano pieces, cinematic arrangements, or complex soundscapes, Ben continues to explore the boundaries of his craft, always seeking to create art that speaks as much to the heart as to the ear.
+
+        BenGurWaves’ story is still unfolding, but his trajectory is clear: an artist whose commitment, vision, and talent have positioned him as a promising voice in contemporary instrumental music. From his earliest experiments to his most recent works, every note carries the promise of something more — a journey not just through sound, but through life itself.
+      </div>
+    </div>
   </main>
 
- <footer class="intro-fade">
-  <p>© BenGurWaves 2025 — All Rights Reserved</p>
-</footer>
+  <footer style="text-align:center; padding:20px; font-size:0.9rem; color:#aaa;">
+    ©BenGurWaves2025<br>
+    ALL RIGHTS RESERVED
+  </footer>
 
   <script>
     // trigger fade-in on page load
@@ -34,5 +97,6 @@
       document.body.classList.add("loaded");
     });
   </script>
+
 </body>
 </html>
