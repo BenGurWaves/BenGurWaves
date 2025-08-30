@@ -15,7 +15,7 @@
       overflow-x: hidden;
     }
 
-    /* Loader video full screen */
+    /* Loader Video */
     #loader {
       position: fixed;
       top: 0;
@@ -27,6 +27,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: opacity 0.6s ease;
     }
     #loader video {
       width: 100%;
@@ -37,6 +38,8 @@
     /* Main content hidden initially */
     #main-content {
       display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
 
     header.site, footer {
@@ -72,7 +75,6 @@
       line-height: 1.6;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .bio-container {
         flex-direction: column;
@@ -87,10 +89,10 @@
 </head>
 <body>
 
-  <!-- Loader Video -->
+  <!-- Loader -->
   <div id="loader">
     <video autoplay muted playsinline>
-      <source src="BenGurWavesLoadvid.mp4" type="video/mp4">
+      <source src="BLoaderVid.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -146,19 +148,23 @@
   </div>
 
   <script>
-    // Hide loader after 3 seconds and show main content
-    window.addEventListener('load', () => {
+    // Hide loader after video ends and fade in main content
+    const loader = document.getElementById('loader');
+    const mainContent = document.getElementById('main-content');
+    const video = loader.querySelector('video');
+
+    video.onended = () => {
+      loader.style.opacity = 0;
       setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('main-content').style.display = 'block';
-      }, 3000); // 3 seconds
-    });
+        loader.style.display = 'none';
+        mainContent.style.display = 'block';
+        setTimeout(() => { mainContent.style.opacity = 1; }, 50);
+      }, 600); // matches transition
+    };
 
     // Scroll-trigger text change
     const title = document.querySelector('.bio-title span');
     const texts = ['Artist Bio', 'Life Bio', 'Musical Bio'];
-    const bioSections = document.querySelectorAll('.bio-text');
-
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const sectionHeight = window.innerHeight;
@@ -170,4 +176,3 @@
 
 </body>
 </html>
- 
