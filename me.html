@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Me - BenGurWaves</title>
 
-  <!-- INLINE STYLES — no external styles.css to avoid broken rules -->
   <style>
     :root{
       --bg:#0f1112;
@@ -32,30 +31,67 @@
       align-items:center;
       justify-content:space-between;
       gap:16px;
-      padding:18px 28px;
-      background: rgba(0,0,0,0.25);
+      padding:14px 24px;
+      background: rgba(0,0,0,0.28);
       border-bottom:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
       z-index:10;
     }
     .links-left, .links-right { display:flex; gap:12px; align-items:center; }
     .brand { font-weight:700; letter-spacing:0.6px; text-decoration:none; color:var(--white); }
-    a { color:var(--white); text-decoration:none; font-size:0.95rem; opacity:0.92; }
+    a.nav-link { color:var(--white); text-decoration:none; font-size:0.95rem; opacity:0.92; padding:6px 8px; }
     a.current{ font-weight:700; text-decoration:underline; }
 
-    /* main area */
-    main { flex:1; display:flex; align-items:center; justify-content:center; padding:40px; }
-    .center-box {
-      width:100%;
-      max-width:980px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:60px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-      text-align:center;
+    /* icons */
+    .social {
+      display:flex;
+      gap:8px;
+      align-items:center;
     }
-    h1{ font-size:3.4rem; margin:0 0 8px 0; color:var(--white); }
-    p.lead{ margin:0; color:var(--muted); font-size:1.05rem; }
+    .social a {
+      display:inline-flex;
+      width:34px;
+      height:34px;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      color:var(--white);
+      opacity:0.95;
+    }
+    .social svg{ width:20px; height:20px; display:block; }
+
+    /* main layout */
+    main { flex:1; padding:48px 24px; }
+    .wrap { max-width:1200px; margin:0 auto; display:flex; gap:40px; align-items:flex-start; }
+
+    /* left sticky title */
+    .left {
+      width:260px;
+      min-width:200px;
+      position:sticky;
+      top:36vh; /* visually centered-ish */
+      transform:translateY(-36%);
+      align-self:flex-start;
+    }
+    .left h2 {
+      margin:0;
+      font-size:1.6rem;
+      color:var(--accent);
+      letter-spacing:0.4px;
+    }
+
+    /* right content */
+    .right {
+      flex:1;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:1rem;
+    }
+    .right .lead {
+      color:var(--white);
+      margin-bottom:18px;
+      font-size:1.05rem;
+      line-height:1.5;
+    }
 
     footer{
       text-align:center;
@@ -66,11 +102,10 @@
       background: linear-gradient(0deg, rgba(0,0,0,0.02), transparent);
     }
 
-    /* small screens */
-    @media (max-width:640px){
-      h1{ font-size:2.2rem; }
-      .center-box{ padding:28px; }
-      header.site{ padding:12px 16px; }
+    @media (max-width:900px){
+      .wrap { flex-direction:column; padding:0 8px; }
+      .left { position:relative; top:0; transform:none; width:100%; }
+      .left h2{ text-align:left; }
     }
   </style>
 </head>
@@ -78,27 +113,69 @@
 
   <header class="site">
     <nav class="links-left">
-      <a href="index.html">Home</a>
-      <a href="releases.html">Releases</a>
-      <a href="merch.html">Merch</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="me.html" class="current">Me</a>
-      <a href="david.html">David</a>
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="releases.html">Releases</a>
+      <a class="nav-link" href="merch.html">Merch</a>
+      <a class="nav-link" href="gallery.html">Gallery</a>
+      <a class="nav-link current" href="me.html">Me</a>
+      <a class="nav-link" href="david.html">David</a>
     </nav>
 
     <a class="brand" href="index.html">BenGurWaves</a>
 
     <nav class="links-right">
-      <a href="https://youtube.com/@bengurwaves" aria-label="YouTube">YouTube</a>
-      <a href="https://instagram.com/bengurwaves" aria-label="Instagram">Instagram</a>
-      <a href="https://www.tiktok.com/@ben_gur_waves" aria-label="TikTok">TikTok</a>
+      <div class="social" role="navigation" aria-label="social links">
+        <!-- YouTube -->
+        <a href="https://youtube.com/@bengurwaves" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2s-.2-1.6-.8-2.3c-.8-.9-1.6-.9-2-1C17.4 2 12 2 12 2s-5.4 0-8.7.9c-.4.1-1.2.1-2 .9-.6.7-.8 2.3-.8 2.3S0 8 0 9.8v2.4C0 14 0 16 0 16s.2 1.6.8 2.3c.8.9 1.8.9 2.3 1 1.7.3 7.2.9 8.9.9s5.4-.6 8.7-.9c.4-.1 1.2-.1 2-.9.6-.7.8-2.3.8-2.3s.2-2 .2-3.8V9.8c0-1.8-.2-3.6-.2-3.6zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="https://instagram.com/bengurwaves" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@ben_gur_waves" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3h2.5v3.5a4.5 4.5 0 1 1-4.5-4.5V3zM9 8.5a4.5 4.5 0 1 0 4.5 4.5H9V8.5z"/></svg>
+        </a>
+        <!-- Vimeo -->
+        <a href="https://vimeo.com/bengurwaves" aria-label="Vimeo" title="Vimeo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7.2c-.1 2.6-1.7 6.2-4.9 11-3.2 4.9-5.8 7.4-7.8 7.4-1.3 0-2.4-1.2-3.3-3.6-1.1-3-2.2-6.1-3.2-9.3C1 7.8 0 6.1 0 4.9 0 2.6 2.3 1 4.8 1c2 0 3.3 1 4.2 3 .9 2 1.6 3 2 3 .8 0 1.3-1.3 1.8-2.6C17 2.8 19.3 1 21.3 1 22 1 22.1 4.3 22 7.2z"/></svg>
+        </a>
+        <!-- Rumble -->
+        <a href="https://rumble.com/bengurwaves" aria-label="Rumble" title="Rumble" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l6 4v10l-6 6-6-6V6l6-4z"/></svg>
+        </a>
+        <!-- SoundCloud -->
+        <a href="https://soundcloud.com/bengurwaves" aria-label="SoundCloud" title="SoundCloud" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 12h1v4H3v-4zm2-3h1v7H5V9zm2-2h1v9H7V7zm2-2h1v11H9V5zm2-3h1v14h-1V2zm2 0h6.5a3.5 3.5 0 010 7H13V2z"/></svg>
+        </a>
+        <!-- Bandcamp -->
+        <a href="https://bengurwaves.bandcamp.com/" aria-label="Bandcamp" title="Bandcamp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 6h20v12H2zM6 9v6l5-3-5-3z"/></svg>
+        </a>
+      </div>
     </nav>
   </header>
 
   <main>
-    <div class="center-box">
-      <h1>Me Page</h1>
-      <p class="lead">This is a minimal working page. If you still see a black screen, follow the debug steps below.</p>
+    <div class="wrap">
+      <div class="left">
+        <h2>BenGurWaves: Artist Bio</h2>
+      </div>
+
+      <div class="right">
+        <p class="lead">BenGurWaves, the musical project of 16-year-old Ben Gur, officially began in March 2025, marking the start of an ambitious journey into sound and storytelling. Born with an innate connection to music, Ben’s earliest compositions were experimental and raw, reflecting the natural growing pains of an artist finding his voice. By summer 2025, he had released ten tracks, each a testament to his dedication and rapidly developing skill. These initial releases captured the essence of his evolving sound: cinematic, emotive, and deeply personal.</p>
+
+        <p>In July 2025, after months of intensive work, Ben took a brief pause to reflect on his artistic direction. This moment of introspection proved transformative. Shifting his focus from merely crafting music to creating art, he began to approach composition as storytelling — each note, chord, and rhythm carrying emotion, narrative, and imagery. What had started as a hobby quickly evolved into a life’s pursuit.</p>
+
+        <p>Following this turning point, BenGurWaves released the album <em>Six Views</em>, a conceptual work exploring the subtle transitions of light and emotion. Each track corresponds to a different “view,” moving from the warm, golden tones of <em>View I – Amber Veil</em> to the dark, contemplative glow of <em>View VI – Afterlight</em>. The album weaves cinematic textures, piano-driven melodies, and atmospheric layers, offering listeners a journey through shifting landscapes of sound and feeling. Critics and listeners alike praised the album for its ability to evoke vivid imagery and emotional resonance, establishing BenGurWaves as a rising talent with a distinct artistic voice.</p>
+
+        <p>Looking ahead, BenGurWaves is preparing to release <em>Finally Home</em> in October 2025, an album that chronicles his personal growth and artistic evolution. The project blends intimate piano passages with layered instrumentation and ambient textures, reflecting themes of self-discovery, perseverance, and the search for belonging. This album is not just a collection of songs — it is a narrative, an immersive experience designed to connect listeners to the emotional core of Ben’s journey.</p>
+
+        <p>Beyond his albums, BenGurWaves’ approach to music emphasizes authenticity, experimentation, and storytelling. His compositions are crafted to resonate with both casual listeners and dedicated music enthusiasts, bridging the gap between technical mastery and emotional accessibility. Whether through solo piano pieces, cinematic arrangements, or complex soundscapes, Ben continues to explore the boundaries of his craft, always seeking to create art that speaks as much to the heart as to the ear.</p>
+
+        <p>BenGurWaves’ story is still unfolding, but his trajectory is clear: an artist whose commitment, vision, and talent have positioned him as a promising voice in contemporary instrumental music. From his earliest experiments to his most recent works, every note carries the promise of something more — a journey not just through sound, but through life itself.</p>
+      </div>
     </div>
   </main>
 
@@ -106,11 +183,9 @@
     © BenGurWaves 2025 — ALL RIGHTS RESERVED
   </footer>
 
-  <!-- Minimal script: nothing fancy so it can't be the cause of a black screen -->
   <script>
-    // tiny sanity check so we can see console if needed
-    console.log("me.html loaded — minimal safe version.");
+    // small debugging help: if icons fail to show (unlikely), this logs fallback info
+    console.log("me.html loaded — icons are inline SVGs, should display even without image files.");
   </script>
-
 </body>
 </html>
