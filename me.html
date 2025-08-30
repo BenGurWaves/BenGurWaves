@@ -11,52 +11,41 @@
       padding: 0;
       font-family: 'DM Sans', sans-serif;
       background: #111;
-      color: #ddd;
-      overflow-x: hidden;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header.site, footer {
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Bio layout */
-    .bio-container {
       display: flex;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 20px;
-    }
-    .bio-title {
-      flex: 1;
-      font-weight: bold;
-      font-size: 2rem;
-      position: sticky;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .bio-title span {
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #000;
       color: #fff;
     }
-    .bio-texts {
-      flex: 3;
-      padding-left: 40px;
-    }
-    .bio-text {
-      margin-bottom: 50px;
-      font-size: 1rem;
-      line-height: 1.6;
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
     }
 
-    @media (max-width: 900px) {
-      .bio-container {
-        flex-direction: column;
-        padding: 60px 20px;
-      }
-      .bio-title, .bio-texts {
-        flex: 1 1 100%;
-        text-align: left;
-      }
+    nav a.current {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    main h1 {
+      font-size: 4rem;
     }
   </style>
 </head>
@@ -88,23 +77,7 @@
 
   <!-- Main Content -->
   <main>
-    <div class="bio-container">
-      <div class="bio-title"><span>BenGurWaves: Artist Bio</span></div>
-      <div class="bio-texts">
-        <div class="bio-text">
-          BenGurWaves, the musical project of 16-year-old Ben Gur, officially began in March 2025, marking the start of an ambitious journey into sound and storytelling. Born with an innate connection to music, Ben’s earliest compositions were experimental and raw, reflecting the natural growing pains of an artist finding his voice. By summer 2025, he had released ten tracks, each a testament to his dedication and rapidly developing skill. These initial releases captured the essence of his evolving sound: cinematic, emotive, and deeply personal.
-        </div>
-        <div class="bio-text">
-          In July 2025, after months of intensive work, Ben took a brief pause to reflect on his artistic direction. This moment of introspection proved transformative. Shifting his focus from merely crafting music to creating art, he began to approach composition as storytelling — each note, chord, and rhythm carrying emotion, narrative, and imagery. What had started as a hobby quickly evolved into a life’s pursuit.
-        </div>
-        <div class="bio-text">
-          Following this turning point, BenGurWaves released the album Six Views, a conceptual work exploring the subtle transitions of light and emotion. Each track corresponds to a different “view,” moving from the warm, golden tones of View I – Amber Veil to the dark, contemplative glow of View VI – Afterlight. The album weaves cinematic textures, piano-driven melodies, and atmospheric layers, offering listeners a journey through shifting landscapes of sound and feeling.
-        </div>
-        <div class="bio-text">
-          Looking ahead, BenGurWaves is preparing to release Finally Home in October 2025, an album that chronicles his personal growth and artistic evolution. The project blends intimate piano passages with layered instrumentation and ambient textures, reflecting themes of self-discovery, perseverance, and the search for belonging.
-        </div>
-      </div>
-    </div>
+    <h1>Me Page</h1>
   </main>
 
   <!-- Footer -->
@@ -112,20 +85,6 @@
     ©BenGurWaves2025<br>
     ALL RIGHTS RESERVED
   </footer>
-
-  <script>
-    // Scroll-trigger text change
-    const title = document.querySelector('.bio-title span');
-    const texts = ['Artist Bio', 'Life Bio', 'Musical Bio'];
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const sectionHeight = window.innerHeight;
-      let index = Math.floor(scrollY / sectionHeight);
-      if (index >= texts.length) index = texts.length - 1;
-      title.textContent = `BenGurWaves: ${texts[index]}`;
-    });
-  </script>
 
 </body>
 </html>
