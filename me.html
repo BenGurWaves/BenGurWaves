@@ -1,57 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Me - BenGurWaves</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- INLINE STYLES — no external styles.css to avoid broken rules -->
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'DM Sans', sans-serif;
-      background: #111;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    :root{
+      --bg:#0f1112;
+      --panel:#0b0c0d;
+      --muted:#a7a7a7;
+      --accent:#d5c788;
+      --white:#ffffff;
+    }
+    html,body{height:100%;margin:0;}
+    body{
+      background: linear-gradient(180deg,var(--bg) 0%, #080909 100%);
+      color:var(--white);
+      font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
     }
 
-    header.site, footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: #000;
-      color: #fff;
+    /* header */
+    header.site{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px 28px;
+      background: rgba(0,0,0,0.25);
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      z-index:10;
+    }
+    .links-left, .links-right { display:flex; gap:12px; align-items:center; }
+    .brand { font-weight:700; letter-spacing:0.6px; text-decoration:none; color:var(--white); }
+    a { color:var(--white); text-decoration:none; font-size:0.95rem; opacity:0.92; }
+    a.current{ font-weight:700; text-decoration:underline; }
+
+    /* main area */
+    main { flex:1; display:flex; align-items:center; justify-content:center; padding:40px; }
+    .center-box {
+      width:100%;
+      max-width:980px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:60px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      text-align:center;
+    }
+    h1{ font-size:3.4rem; margin:0 0 8px 0; color:var(--white); }
+    p.lead{ margin:0; color:var(--muted); font-size:1.05rem; }
+
+    footer{
+      text-align:center;
+      padding:18px 12px;
+      color:var(--muted);
+      font-size:0.9rem;
+      border-top:1px solid rgba(255,255,255,0.02);
+      background: linear-gradient(0deg, rgba(0,0,0,0.02), transparent);
     }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    nav a.current {
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    main h1 {
-      font-size: 4rem;
+    /* small screens */
+    @media (max-width:640px){
+      h1{ font-size:2.2rem; }
+      .center-box{ padding:28px; }
+      header.site{ padding:12px 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header class="site">
     <nav class="links-left">
       <a href="index.html">Home</a>
@@ -62,29 +86,31 @@
       <a href="david.html">David</a>
     </nav>
 
-    <a href="index.html" class="brand">BenGurWaves</a>
+    <a class="brand" href="index.html">BenGurWaves</a>
 
     <nav class="links-right">
-      <a href="https://youtube.com/@bengurwaves"><img src="icons8-youtube-logo.svg" alt="YouTube"></a>
-      <a href="https://instagram.com/bengurwaves"><img src="icons8-instagram-logo.svg" alt="Instagram"></a>
-      <a href="https://www.tiktok.com/@ben_gur_waves"><img src="tiktok-48.png" alt="TikTok"></a>
-      <a href="https://vimeo.com/bengurwaves"><img src="icons8-vimeo.svg" alt="Vimeo"></a>
-      <a href="https://rumble.com/bengurwaves"><img src="Rumble--Streamline-Simple-Icons.svg" alt="Rumble"></a>
-      <a href="https://soundcloud.com/bengurwaves"><img src="icons8-soundcloud-logo.svg" alt="SoundCloud"></a>
-      <a href="https://bengurwaves.bandcamp.com/"><img src="icons8-bandcamp.svg" alt="Bandcamp"></a>
+      <a href="https://youtube.com/@bengurwaves" aria-label="YouTube">YouTube</a>
+      <a href="https://instagram.com/bengurwaves" aria-label="Instagram">Instagram</a>
+      <a href="https://www.tiktok.com/@ben_gur_waves" aria-label="TikTok">TikTok</a>
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
-    <h1>Me Page</h1>
+    <div class="center-box">
+      <h1>Me Page</h1>
+      <p class="lead">This is a minimal working page. If you still see a black screen, follow the debug steps below.</p>
+    </div>
   </main>
 
-  <!-- Footer -->
-  <footer style="text-align:center; padding:20px; font-size:0.9rem; color:#aaa;">
-    ©BenGurWaves2025<br>
-    ALL RIGHTS RESERVED
+  <footer>
+    © BenGurWaves 2025 — ALL RIGHTS RESERVED
   </footer>
+
+  <!-- Minimal script: nothing fancy so it can't be the cause of a black screen -->
+  <script>
+    // tiny sanity check so we can see console if needed
+    console.log("me.html loaded — minimal safe version.");
+  </script>
 
 </body>
 </html>
