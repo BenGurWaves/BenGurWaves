@@ -1,178 +1,179 @@
-// pages/me.js
-import React from "react";
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Me | BenGurWaves</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-black text-white font-sans">
+    <!-- Header -->
+    <header class="p-6 text-center text-3xl font-bold tracking-wider border-b border-gray-700">
+      Me Page
+    </header>
 
-export default function MePage() {
-  return (
-    <div className="relative min-h-screen bg-black text-white font-sans">
-      {/* Header */}
-      <header className="p-6 text-center text-3xl font-bold tracking-wider border-b border-gray-700">
-        Me Page
-      </header>
-
-      {/* Main content */}
-      <main className="flex">
-        {/* Left Sticky Column */}
-        <div className="w-1/3 flex justify-end pr-6">
-          <div className="sticky top-1/2 -translate-y-1/2 text-right">
-            <span className="block text-2xl font-bold">BenGurWaves:</span>
-            <span
-              id="bio-label"
-              className="block text-xl font-light transition-all duration-500"
-            >
-              {/* JS swaps label */}
-            </span>
-          </div>
+    <!-- Main Content -->
+    <main class="flex">
+      <!-- Left Sticky Column -->
+      <div class="w-1/3 flex justify-end pr-6">
+        <div class="sticky top-1/2 -translate-y-1/2 text-right">
+          <span class="block text-2xl font-bold">BenGurWaves:</span>
+          <span id="bio-label" class="block text-xl font-light">
+            Artist Bio
+          </span>
         </div>
+      </div>
 
-        {/* Right Scroll Column */}
-        <div className="w-2/3 space-y-48 pr-6">
-          {/* Artist Bio */}
-          <section className="bio-section space-y-6" data-label="Artist Bio">
-            <h2 className="text-2xl font-semibold">Artist Bio</h2>
-            <p className="text-lg leading-relaxed">
-              BenGurWaves, the musical project of 16-year-old Ben Gur,
-              officially began in March 2025, marking the start of an ambitious
-              journey into sound and storytelling. Born with an innate
-              connection to music, Ben’s earliest compositions were experimental
-              and raw, reflecting the natural growing pains of an artist finding
-              his voice. By summer 2025, he had released ten tracks, each a
-              testament to his dedication and rapidly developing skill. These
-              initial releases captured the essence of his evolving sound:
-              cinematic, emotive, and deeply personal.
-            </p>
-            <p className="text-lg leading-relaxed">
-              In July 2025, after months of intensive work, Ben took a brief
-              pause to reflect on his artistic direction. This moment of
-              introspection proved transformative. Shifting his focus from
-              merely crafting music to creating art, he began to approach
-              composition as storytelling — each note, chord, and rhythm
-              carrying emotion, narrative, and imagery. What had started as a
-              hobby quickly evolved into a life’s pursuit.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Following this turning point, BenGurWaves released the album{" "}
-              <em>Six Views</em>, a conceptual work exploring the subtle
-              transitions of light and emotion. Each track corresponds to a
-              different “view,” moving from the warm, golden tones of{" "}
-              <em>View I – Amber Veil</em> to the dark, contemplative glow of{" "}
-              <em>View VI – Afterlight</em>. The album weaves cinematic
-              textures, piano-driven melodies, and atmospheric layers, offering
-              listeners a journey through shifting landscapes of sound and
-              feeling. Critics and listeners alike praised the album for its
-              ability to evoke vivid imagery and emotional resonance,
-              establishing BenGurWaves as a rising talent with a distinct
-              artistic voice.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Looking ahead, BenGurWaves is preparing to release{" "}
-              <em>Finally Home</em> in October 2025, an album that chronicles
-              his personal growth and artistic evolution. The project blends
-              intimate piano passages with layered instrumentation and ambient
-              textures, reflecting themes of self-discovery, perseverance, and
-              the search for belonging. This album is not just a collection of
-              songs — it is a narrative, an immersive experience designed to
-              connect listeners to the emotional core of Ben’s journey.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Beyond his albums, BenGurWaves’ approach to music emphasizes
-              authenticity, experimentation, and storytelling. His compositions
-              are crafted to resonate with both casual listeners and dedicated
-              music enthusiasts, bridging the gap between technical mastery and
-              emotional accessibility. Whether through solo piano pieces,
-              cinematic arrangements, or complex soundscapes, Ben continues to
-              explore the boundaries of his craft, always seeking to create art
-              that speaks as much to the heart as to the ear.
-            </p>
-            <p className="text-lg leading-relaxed">
-              BenGurWaves’ story is still unfolding, but his trajectory is
-              clear: an artist whose commitment, vision, and talent have
-              positioned him as a promising voice in contemporary instrumental
-              music. From his earliest experiments to his most recent works,
-              every note carries the promise of something more — a journey not
-              just through sound, but through life itself.
-            </p>
-          </section>
+      <!-- Right Scroll Column -->
+      <div class="w-2/3 space-y-48 pr-6">
+        <!-- Artist Bio -->
+        <section class="bio-section space-y-6" data-label="Artist Bio">
+          <h2 class="text-2xl font-semibold">Artist Bio</h2>
+          <p class="text-lg leading-relaxed">
+            BenGurWaves, the musical project of 16-year-old Ben Gur, officially
+            began in March 2025, marking the start of an ambitious journey into
+            sound and storytelling. Born with an innate connection to music,
+            Ben’s earliest compositions were experimental and raw, reflecting
+            the natural growing pains of an artist finding his voice. By summer
+            2025, he had released ten tracks, each a testament to his dedication
+            and rapidly developing skill. These initial releases captured the
+            essence of his evolving sound: cinematic, emotive, and deeply
+            personal.
+          </p>
+          <p class="text-lg leading-relaxed">
+            In July 2025, after months of intensive work, Ben took a brief pause
+            to reflect on his artistic direction. This moment of introspection
+            proved transformative. Shifting his focus from merely crafting music
+            to creating art, he began to approach composition as storytelling —
+            each note, chord, and rhythm carrying emotion, narrative, and
+            imagery. What had started as a hobby quickly evolved into a life’s
+            pursuit.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Following this turning point, BenGurWaves released the album
+            <em>Six Views</em>, a conceptual work exploring the subtle
+            transitions of light and emotion. Each track corresponds to a
+            different “view,” moving from the warm, golden tones of
+            <em>View I – Amber Veil</em> to the dark, contemplative glow of
+            <em>View VI – Afterlight</em>. The album weaves cinematic textures,
+            piano-driven melodies, and atmospheric layers, offering listeners a
+            journey through shifting landscapes of sound and feeling. Critics
+            and listeners alike praised the album for its ability to evoke vivid
+            imagery and emotional resonance, establishing BenGurWaves as a
+            rising talent with a distinct artistic voice.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Looking ahead, BenGurWaves is preparing to release
+            <em>Finally Home</em> in October 2025, an album that chronicles his
+            personal growth and artistic evolution. The project blends intimate
+            piano passages with layered instrumentation and ambient textures,
+            reflecting themes of self-discovery, perseverance, and the search
+            for belonging. This album is not just a collection of songs — it is
+            a narrative, an immersive experience designed to connect listeners
+            to the emotional core of Ben’s journey.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Beyond his albums, BenGurWaves’ approach to music emphasizes
+            authenticity, experimentation, and storytelling. His compositions
+            are crafted to resonate with both casual listeners and dedicated
+            music enthusiasts, bridging the gap between technical mastery and
+            emotional accessibility. Whether through solo piano pieces,
+            cinematic arrangements, or complex soundscapes, Ben continues to
+            explore the boundaries of his craft, always seeking to create art
+            that speaks as much to the heart as to the ear.
+          </p>
+          <p class="text-lg leading-relaxed">
+            BenGurWaves’ story is still unfolding, but his trajectory is clear:
+            an artist whose commitment, vision, and talent have positioned him
+            as a promising voice in contemporary instrumental music. From his
+            earliest experiments to his most recent works, every note carries
+            the promise of something more — a journey not just through sound,
+            but through life itself.
+          </p>
+        </section>
 
-          {/* Life Bio */}
-          <section
-            className="bio-section space-y-6"
-            data-label="(I just couldn’t fit all in one bio.) Life Bio"
-          >
-            <h2 className="text-2xl font-semibold">Life Bio</h2>
-            <p className="text-lg leading-relaxed">
-              Ben Gur was born in 2008 into a musical family. His
-              great-grandmother, grandmother, and father were all musicians,
-              weaving a generational legacy of sound. His father began his own
-              journey in the Soviet Union, studying piano, guitar, and later
-              violin. By his mid-twenties, he had composed four albums and,
-              after immigrating to the United States, became deeply involved in
-              local church music — leading choirs and singing groups.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Ben’s childhood followed a similar path. At six years old, he
-              began piano lessons, quickly excelling beyond his peers. By eight,
-              he was also studying saxophone in school band and performing with
-              his church ensemble. At ten, he added guitar to his growing list
-              of instruments, mastering it within three years. Alongside, he
-              pursued the Royal Conservatory of Music piano program, completing
-              six years’ worth of study in only three, and expanded into violin,
-              cello, bass, and viola — much of it self-taught. By 15, Ben had
-              amassed an impressive résumé: choirs, orchestras, solo
-              performances, and proficiency across nearly every family of
-              instruments.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Yet, for all his talent, Ben resisted creating his own music. Out
-              of shyness, he declined encouragement from family, friends, and
-              mentors. That changed after a pivotal trip to Missouri, where a
-              heartfelt conversation with his cousin finally persuaded him to
-              take the leap. In March 2025, BenGurWaves was born. His first
-              attempts, however, lacked depth — uploads made out of habit rather
-              than heart. But by July, after a short break, he realigned his
-              vision. Music was not just a pastime; it was a calling.
-            </p>
-            <p className="text-lg leading-relaxed">
-              That realization led to{" "}
-              <em>The Six Views Album</em>, a glimpse of his artistic potential,
-              followed by a vow he made to himself: every song would carry his
-              full heart, or it would not exist at all. The result was{" "}
-              <em>Finally Home</em>, released October 10, 2025 — an album born
-              of honesty, perseverance, and the courage to begin again.
-            </p>
-            <p className="text-lg leading-relaxed">
-              From generational legacy to personal breakthrough, Ben’s life is a
-              story of sound — one that continues to grow louder, richer, and
-              more profound with every passing year.
-            </p>
-          </section>
-        </div>
-      </main>
+        <!-- Life Bio -->
+        <section
+          class="bio-section space-y-6"
+          data-label="(I just couldn’t fit all in one bio.) Life Bio"
+        >
+          <h2 class="text-2xl font-semibold">Life Bio</h2>
+          <p class="text-lg leading-relaxed">
+            Ben Gur was born in 2008 into a musical family. His
+            great-grandmother, grandmother, and father were all musicians,
+            weaving a generational legacy of sound. His father began his own
+            journey in the Soviet Union, studying piano, guitar, and later
+            violin. By his mid-twenties, he had composed four albums and, after
+            immigrating to the United States, became deeply involved in local
+            church music — leading choirs and singing groups.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Ben’s childhood followed a similar path. At six years old, he began
+            piano lessons, quickly excelling beyond his peers. By eight, he was
+            also studying saxophone in school band and performing with his
+            church ensemble. At ten, he added guitar to his growing list of
+            instruments, mastering it within three years. Alongside, he pursued
+            the Royal Conservatory of Music piano program, completing six years’
+            worth of study in only three, and expanded into violin, cello, bass,
+            and viola — much of it self-taught. By 15, Ben had amassed an
+            impressive résumé: choirs, orchestras, solo performances, and
+            proficiency across nearly every family of instruments.
+          </p>
+          <p class="text-lg leading-relaxed">
+            Yet, for all his talent, Ben resisted creating his own music. Out of
+            shyness, he declined encouragement from family, friends, and
+            mentors. That changed after a pivotal trip to Missouri, where a
+            heartfelt conversation with his cousin finally persuaded him to take
+            the leap. In March 2025, BenGurWaves was born. His first attempts,
+            however, lacked depth — uploads made out of habit rather than heart.
+            But by July, after a short break, he realigned his vision. Music was
+            not just a pastime; it was a calling.
+          </p>
+          <p class="text-lg leading-relaxed">
+            That realization led to <em>The Six Views Album</em>, a glimpse of
+            his artistic potential, followed by a vow he made to himself: every
+            song would carry his full heart, or it would not exist at all. The
+            result was <em>Finally Home</em>, released October 10, 2025 — an
+            album born of honesty, perseverance, and the courage to begin again.
+          </p>
+          <p class="text-lg leading-relaxed">
+            From generational legacy to personal breakthrough, Ben’s life is a
+            story of sound — one that continues to grow louder, richer, and more
+            profound with every passing year.
+          </p>
+        </section>
+      </div>
+    </main>
 
-      {/* Footer */}
-      <footer className="p-6 text-center text-sm text-gray-400 border-t border-gray-700">
-        © {new Date().getFullYear()} BenGurWaves. All rights reserved.
-      </footer>
+    <!-- Footer -->
+    <footer
+      class="p-6 text-center text-sm text-gray-400 border-t border-gray-700"
+    >
+      © <span id="year"></span> BenGurWaves. All rights reserved.
+    </footer>
 
-      {/* Script for syncing labels */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            const label = document.getElementById("bio-label");
-            const sections = document.querySelectorAll(".bio-section");
+    <!-- Script for syncing labels -->
+    <script>
+      const label = document.getElementById("bio-label");
+      const sections = document.querySelectorAll(".bio-section");
 
-            window.addEventListener("scroll", () => {
-              let current = "";
-              sections.forEach((sec) => {
-                const rect = sec.getBoundingClientRect();
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                  current = sec.getAttribute("data-label");
-                }
-              });
-              label.textContent = current;
-            });
-          `,
-        }}
-      />
-    </div>
-  );
-}
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((sec) => {
+          const rect = sec.getBoundingClientRect();
+          if (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          ) {
+            current = sec.getAttribute("data-label");
+          }
+        });
+        if (current) label.textContent = current;
+      });
+
+      // Auto year in footer
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+    </script>
+  </body>
+</html>
