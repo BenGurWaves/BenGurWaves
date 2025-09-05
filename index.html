@@ -726,38 +726,41 @@
 
   <main class="site content-container intro-fade">
 
-   <section class="gallery-section" aria-label="Gallery">
-  <div class="gallery-inner">
-    <h2 class="gallery-title">Gallery</h2>
+  <section class="gallery-section" aria-label="Gallery">
+  <h2 class="gallery-title">Gallery</h2>
 
-    <div class="gallery-grid">
-      <!-- Row 1 -->
-      <div class="gallery-item aspect-16-9" data-id="frustration" data-bw="Frustration_Thumbnail_B&W.png" data-color="Frustration_Thumbnail_Color.jpg" data-desc="Frustration — taken by David Ivanyuck">
-        <img src="Frustration_Thumbnail_Color.jpg" alt="Frustration">
-      </div>
+  <div class="gallery-grid">
+    <!-- Row 1 -->
+    <div class="gallery-item aspect-16-9" data-id="frustration" data-bw="Frustration_Thumbnail_B&W.png" data-color="Frustration_Thumbnail_Color.jpg" data-desc="Frustration — taken by David Ivanyuck">
+      <img src="Frustration_Thumbnail_Color.jpg" alt="Frustration">
+    </div>
+    <div class="gallery-item aspect-square scale-up" data-id="finally-home" data-bw="727ac10d-e5d5-4d50-a5d1-e4de2c65c331.png" data-color="Finally Home Thumb (Best Reso).jpg" data-desc="Finally Home — art by Abigail Gurzhiy">
+      <img src="Finally Home Thumb (Best Reso).jpg" alt="Finally Home">
+    </div>
 
-      <div class="gallery-item aspect-square" data-id="finally-home" data-bw="727ac10d-e5d5-4d50-a5d1-e4de2c65c331.png" data-color="Finally Home Thumb (Best Reso).jpg" data-desc="Finally Home — art by Abigail Gurzhiy">
-        <img src="Finally Home Thumb (Best Reso).jpg" alt="Finally Home">
-      </div>
-
-      <!-- Row 2 -->
-      <div class="gallery-item aspect-square" data-id="absent-waltz" data-bw="absent-waltz-bw.png" data-color="absent-waltz-color.jpg" data-desc="The Absent Waltz — original piano composition">
-        <img src="absent-waltz-color.jpg" alt="Absent Waltz">
-      </div>
-
-      <div class="gallery-item aspect-16-9" data-id="gentle-resonance" data-bw="gentle-resonance-bw.png" data-color="gentle-resonance-color.jpg" data-desc="Gentle Resonance — quiet piano">
-        <img src="gentle-resonance-color.jpg" alt="Gentle Resonance">
-      </div>
+    <!-- Row 2 -->
+    <div class="gallery-item aspect-square scale-up" data-id="absent-waltz" data-bw="absent-waltz-bw.png" data-color="absent-waltz-color.jpg" data-desc="The Absent Waltz — original piano composition">
+      <img src="absent-waltz-color.jpg" alt="Absent Waltz">
+    </div>
+    <div class="gallery-item aspect-16-9" data-id="gentle-resonance" data-bw="gentle-resonance-bw.png" data-color="gentle-resonance-color.jpg" data-desc="Gentle Resonance — quiet piano">
+      <img src="gentle-resonance-color.jpg" alt="Gentle Resonance">
     </div>
   </div>
 
   <style>
-    /* Grid layout for 2-row, 2-column gallery */
     .gallery-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr; /* main image + smaller side image */
+      grid-template-columns: 2fr 1fr;
       grid-template-rows: auto auto;
-      gap: 24px 18px; /* vertical row gap, horizontal column gap */
+      gap: 24px 18px;
+    }
+
+    /* Row 2: match sizes of row 1 */
+    .gallery-grid > div:nth-child(3) { /* Absent Waltz */
+      height: auto;
+    }
+    .gallery-grid > div:nth-child(4) { /* Gentle Resonance */
+      height: auto;
     }
 
     .gallery-item {
@@ -780,23 +783,15 @@
       filter: grayscale(0);
     }
 
-    .aspect-16-9 {
-      aspect-ratio: 16/9;
+    /* Aspect ratios */
+    .aspect-16-9 { aspect-ratio: 16/9; }
+    .aspect-square { aspect-ratio: 1/1; }
+
+    /* Slightly scale up squares to match vertical height of 16:9 in same row */
+    .scale-up img {
+      transform: scale(1.04);
     }
 
-    .aspect-square {
-      aspect-ratio: 1/1;
-    }
-
-    /* Make square match vertical height of 16:9 in same row */
-    .gallery-grid > .aspect-square:nth-child(2) {
-      height: auto;
-    }
-    .gallery-grid > .aspect-square:nth-child(3) {
-      height: auto;
-    }
-
-    /* Responsive adjustments */
     @media (max-width: 980px) {
       .gallery-grid {
         grid-template-columns: 1fr;
@@ -811,6 +806,7 @@
     }
   </style>
 </section>
+
 
   </main>
 
