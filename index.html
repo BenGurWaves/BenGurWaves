@@ -36,13 +36,11 @@
       transition: color 180ms linear;
     }
 
-    /* ========================= Sheet Music cards (updated) ========================= */
     .sheet-section {
       min-height: 890px;
       display:flex;
       align-items:center;
       justify-content:center;
-      /* no special background — inherit page background */
       background: none;
       position: relative;
     }
@@ -66,10 +64,7 @@
       align-items:center;
       gap: 0;
       pointer-events: auto;
-      /* ensure no weird background gaps */
       overflow: visible;
-
-      /* jitter/glitch reduction */
       transform-style: preserve-3d;
       -webkit-transform-style: preserve-3d;
     }
@@ -91,11 +86,8 @@
         filter 420ms ease;
       background: #111;
       border: 1px solid rgba(255,255,255,0.03);
-      /* ensure edges don't create visible "slice" artifacts */
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-
-      /* hint to the browser for smoother transforms */
       will-change: transform, left, top, filter;
     }
 
@@ -104,7 +96,6 @@
       height:100%;
       object-fit: cover;
       display:block;
-      /* subtle filter to mask screenshot artifacts */
       filter: saturate(0.98) contrast(0.98) brightness(0.98);
       transform: scale(1.02) translateZ(0);
       transition: transform 420ms ease, filter 420ms ease;
@@ -112,7 +103,6 @@
       -webkit-user-drag: none;
     }
 
-    /* center card sits on top so it covers center area (side cards behind it) */
     .sheet-card.center {
       z-index: 30;
       left: calc(50% - var(--card-w) / 2);
@@ -120,21 +110,19 @@
       transform: rotate(0deg) translateY(0);
     }
 
-    /* side cards sit slightly lower and behind the center card so they peek out */
     .sheet-card.left {
       z-index: 20;
       left: calc(50% - var(--card-w) - 36px);
-      top: 28px;                     /* slightly below the center */
+      top: 28px;
       transform: rotate(-10deg) translateY(0);
     }
     .sheet-card.right {
       z-index: 20;
       left: calc(50% + 36px);
-      top: 28px;                     /* slightly below the center */
+      top: 28px;
       transform: rotate(10deg) translateY(0);
     }
 
-    /* hover: side cards fan out a bit more and lift up (no clip-path) */
     .sheet-cards:hover .sheet-card.left {
       left: calc(50% - var(--card-w) - 86px);
       top: -6px;
@@ -153,7 +141,6 @@
       filter: saturate(1.02) contrast(1.03) brightness(1);
     }
 
-    /* when hover on an individual card slightly lift it and bring forward */
     .sheet-card:hover { transform: translateY(-8px) scale(1.01) rotate(0deg); z-index: 60; }
     .sheet-card:hover img { transform: scale(1.04) translateZ(0); }
 
@@ -165,18 +152,16 @@
       text-align: center;
     }
 
-    /* accessibility focus */
     .sheet-card a { display:block; width:100%; height:100%; text-decoration:none; color:inherit; }
     .sheet-card:focus-within { outline: 3px solid rgba(210,184,140,0.12); }
 
-    /* ========================= GALLERY (new) ========================= */
     .gallery-section{
       min-height: 890px;
       display:flex;
       align-items:center;
       justify-content:center;
       position:relative;
-      background:#0d0d0d; /* dark, not pitch black */
+      background:#0d0d0d;
     }
     .gallery-section::before{
       content:"";
@@ -193,14 +178,17 @@
       margin:0 0 18px 0; text-align:center;
       color:#fff; font-family:'Chomsky', serif; font-size:2rem; letter-spacing:.3px;
     }
+
+    /* original grid (kept for fallback) */
     .gallery-grid{
       display:grid;
       grid-template-columns:repeat(12, 1fr);
-      grid-auto-rows:160px;   /* controls tile height so images don't explode */
+      grid-auto-rows:160px;
       gap:18px;
       width:100%;
       user-select:none;
     }
+
     .gallery-item{
       position:relative; overflow:hidden; border-radius:10px;
       box-shadow:0 16px 38px rgba(0,0,0,0.55);
@@ -208,12 +196,11 @@
       transition: transform .35s ease;
       cursor:pointer;
       isolation:isolate;
-      transform-origin:center;            /* <-- added so rotation/scale happen around center */
-      will-change: transform;             /* <-- hint to browser for smoother composition */
+      transform-origin:center;
+      will-change: transform;
       -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
     }
-    /* Preserve rotation value on hover and only scale — don't reset rotation to 0 */
     .gallery-item:hover{ transform: rotate(var(--rot, 0deg)) scale(1.01); z-index:3; }
 
     .gallery-item img{
@@ -227,7 +214,6 @@
       transform: translateZ(0);
       user-select:none;
     }
-    /* Slightly reduced scale on the image itself to avoid excessive combined scaling */
     .gallery-item:hover img{ filter:none; transform:scale(1.03); }
     .gallery-item::after{
       content: attr(data-desc);
@@ -237,13 +223,9 @@
       text-shadow:0 2px 10px rgba(0,0,0,.55);
       pointer-events:none;
     }
-    /* Mosaic layout (abstract) */
-    .gallery-item:nth-child(1){ grid-column:1 / span 7; grid-row:1 / span 2; --rot:-1.4deg; }
-    .gallery-item:nth-child(2){ grid-column:8 / span 5; grid-row:1 / span 1; --rot:2.2deg; }
-    .gallery-item:nth-child(3){ grid-column:9 / span 4; grid-row:2 / span 2; --rot:-2deg; }
-    .gallery-item:nth-child(4){ grid-column:1 / span 8; grid-row:3 / span 1; --rot:1.2deg; }
 
-    /* "More Pics" button */
+    /* previously set mosaic rules removed/overridden later with the index-specific override */
+
     .gallery-actions{ display:flex; justify-content:center; margin-top:22px; }
     .gallery-btn{
       display:inline-block; padding:12px 22px; border-radius:8px;
@@ -252,7 +234,6 @@
     }
     .gallery-btn:hover, .gallery-btn:focus{ background:#000; color:#d2b48c; transform: translateY(-2px); }
 
-    /* Responsive gallery */
     @media (max-width: 980px){
       .gallery-grid{ grid-template-columns: repeat(8, 1fr); grid-auto-rows:140px; }
       .gallery-item:nth-child(1){ grid-column:1 / span 5; grid-row:1 / span 2; }
@@ -268,7 +249,6 @@
       .gallery-item:nth-child(4){ grid-column:1 / span 6; grid-row:5 / span 1; }
     }
 
-    /* ========================= Lightbox (hidden unless active) ========================= */
     .lightbox{
       position:fixed; inset:0; display:none; align-items:center; justify-content:center;
       background:rgba(0,0,0,.78); z-index:2000; padding:24px;
@@ -286,7 +266,7 @@
       text-shadow:0 2px 8px rgba(0,0,0,.7);
     }
 
-    /* ========================= styles.css content appended below ========================= */
+    /* styles.css content appended below (kept intact) */
 
     /* ================= Full Background & Body ================= */
     html {
@@ -312,7 +292,6 @@
       opacity: 1;
     }
 
-    /* Colorful background overlay for smooth fade */
     body::before {
       content: '';
       position: fixed;
@@ -324,14 +303,13 @@
       background-size: cover;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 1s ease; /* smooth fade */
+      transition: opacity 1s ease;
       z-index: -1;
     }
     body.colorful-bg::before {
       opacity: 1;
     }
 
-    /* ================= Header ================= */
     header.site {
       display: flex;
       justify-content: space-between;
@@ -376,7 +354,6 @@
       filter: brightness(1) invert(0.7);
     }
 
-    /* ================= Hero Section ================= */
     .hero-intro {
       height: 890px;
       display: flex;
@@ -429,7 +406,6 @@
       font-style: italic;
     }
 
-    /* ================= Centered Content Box ================= */
     .content-container {
       max-width: 1100px;
       margin: 40px auto;
@@ -440,7 +416,6 @@
       text-align: left;
     }
 
-    /* ================= Fade-in Content ================= */
     .intro-fade {
       opacity: 0;
       transform: translateY(20px);
@@ -452,7 +427,6 @@
       transform: translateY(0);
     }
 
-    /* ================= Responsive for Phones ================= */
     @media only screen and (max-width: 768px) {
       .hero-name { font-size: 4rem; }
       .hero-description { font-size: 1rem; }
@@ -460,7 +434,7 @@
       .hero-quote-subtext { font-size: 0.9rem; }
       header nav.links-left, header nav.links-right { gap: 10px; }
     }
-    /* Gallery Section */
+
     .gallery-section {
       min-height: 100vh;
       background: #111;
@@ -515,16 +489,14 @@
       color: black;
     }
 
-    /* For gallery images */
     transform: translateZ(0) scale3d(1.02,1.02,1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-transform: translate3d(0,0,0);
     -webkit-transform: translate3d(0,0,0);
-    opacity:0.999; /* subtle hack for Firefox repaint */
+    opacity:0.999;
     will-change: transform, filter, opacity;
 
-    /* Lightbox */
     .lightbox {
       position: fixed;
       top: 0; left: 0;
@@ -565,39 +537,34 @@
       color: white;
       cursor: pointer;
     }
-     /* ================= Fix horizontal scroll ================= */
+
     html, body {
       max-width: 100%;
-      overflow-x: hidden; /* prevent horizontal scroll */
+      overflow-x: hidden;
     }
 
-    /* ================= Gallery image Firefox hover glitch fix ================= */
     .gallery-item img {
-      transform: translateZ(0);          /* trigger GPU rendering */
-      backface-visibility: hidden;       /* prevent black flashes */
+      transform: translateZ(0);
+      backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       will-change: transform, filter, opacity;
     }
 
-    /* Slightly smaller hover scale for smoother GPU render */
     .gallery-item img:hover {
       transform: scale(1.03);
     }
 
-    /* ================= Gallery responsiveness ================= */
     .gallery-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* adapt to mobile */
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
-    /* ================= Hero & content container responsive fixes ================= */
     .hero-intro, .content-container {
       width: 100%;
       box-sizing: border-box;
-      overflow: hidden; /* ensure no extra scroll */
+      overflow: hidden;
     }
 
-    /* ================= Mobile adjustments ================= */
     @media only screen and (max-width: 768px) {
       .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -605,6 +572,20 @@
       }
       .hero-intro { height: auto; padding: 20px 10px; }
       .content-container { padding: 20px 10px; margin: 20px auto; }
+    }
+
+    /* INDEX-PAGE: override mosaic layout so gallery items use 2-column layout with aspect rules
+       This resets any earlier nth-child grid placements and enforces:
+       left column = wider (2fr) for 16:9 images; right column = narrower (1fr) for squares. */
+    .gallery-grid { display:grid; grid-template-columns: 2fr 1fr; gap:18px; align-items:start; }
+    .gallery-grid .gallery-item { grid-column: auto !important; grid-row: auto !important; }
+    .gallery-item.aspect-16-9 { aspect-ratio: 16 / 9; }
+    .gallery-item.aspect-1-1 { aspect-ratio: 1 / 1; }
+
+    @media (max-width: 980px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.aspect-16-9,
+      .gallery-item.aspect-1-1 { aspect-ratio: auto; width:100%; }
     }
   </style>
 </head>
@@ -714,26 +695,23 @@
     </div>
   </section>
 
-  <!-- Sheet Music Section (fixed: no clip-path, no black background) -->
+  <!-- Sheet Music Section -->
   <section class="sheet-section" aria-label="Sheet Music">
     <div class="sheet-container">
       <div>
         <div class="sheet-cards" tabindex="0" aria-label="Sheet music examples (click to open sheet music releases)">
-          <!-- left card (partly hidden behind center) -->
           <div class="sheet-card left" role="button">
             <a href="releases.html#sheet-music" title="Open sheet music - left">
               <img src="Screen%20Shot%202025-08-19%20at%204.29.10%20PM.png" alt="Sheet 1">
             </a>
           </div>
 
-          <!-- center card -->
           <div class="sheet-card center" role="button">
             <a href="releases.html#sheet-music" title="Open sheet music - center">
               <img src="Screen%20Shot%202025-08-19%20at%204.29.44%20PM.png" alt="Sheet 2">
             </a>
           </div>
 
-          <!-- right card (partly hidden behind center) -->
           <div class="sheet-card right" role="button">
             <a href="releases.html#sheet-music" title="Open sheet music - right">
               <img src="Screen%20Shot%202025-08-19%20at%204.30.02%20PM.png" alt="Sheet 3">
@@ -746,32 +724,30 @@
     </div>
   </section>
 
-  <!-- Main Content (keeps the earlier small Featured block and scrollable content) -->
   <main class="site content-container intro-fade">
 
-    <!-- Gallery Section -->
     <section class="gallery-section" aria-label="Gallery">
       <div class="gallery-inner">
         <h2 class="gallery-title">Gallery</h2>
 
         <div class="gallery-grid">
-          <!-- Image 1 -->
-          <div class="gallery-item" data-id="frustration" data-bw="Frustration_Thumbnail_B&W.png" data-color="Frustration_Thumbnail_Color.jpg" data-desc="Frustration — taken by David Ivanyuck">
+          <!-- Frustration (16:9) — first row left -->
+          <div class="gallery-item aspect-16-9" data-id="frustration" data-bw="Frustration_Thumbnail_B&W.png" data-color="Frustration_Thumbnail_Color.jpg" data-desc="Frustration — taken by David Ivanyuck">
             <img src="Frustration_Thumbnail_Color.jpg" alt="Frustration">
           </div>
 
-          <!-- Image 2 -->
-          <div class="gallery-item" data-id="finally-home" data-bw="727ac10d-e5d5-4d50-a5d1-e4de2c65c331.png" data-color="Finally Home Thumb (Best Reso).jpg" data-desc="Finally Home — art by Abigail Gurzhiy">
+          <!-- Finally Home (square) — first row right -->
+          <div class="gallery-item aspect-1-1" data-id="finally-home" data-bw="727ac10d-e5d5-4d50-a5d1-e4de2c65c331.png" data-color="Finally Home Thumb (Best Reso).jpg" data-desc="Finally Home — art by Abigail Gurzhiy">
             <img src="Finally Home Thumb (Best Reso).jpg" alt="Finally Home">
           </div>
 
-          <!-- Image 3 -->
-          <div class="gallery-item" data-id="absent-waltz" data-bw="The_Absent_Waltz_B&W.png" data-color="The_Absent_Waltz_Color.png" data-desc="The Absent Waltz — photo by David Ivanyuck">
+          <!-- Absent Waltz (square) — second row left -->
+          <div class="gallery-item aspect-1-1" data-id="absent-waltz" data-bw="The_Absent_Waltz_B&W.png" data-color="The_Absent_Waltz_Color.png" data-desc="The Absent Waltz — photo by David Ivanyuck">
             <img src="The_Absent_Waltz_Color.png" alt="The Absent Waltz">
           </div>
 
-          <!-- Image 4 -->
-          <div class="gallery-item" data-id="gentle-resonance" data-bw="6fa2cdce-373a-4099-985b-6146d77dffb1.png" data-color="P1070449.JPG" data-desc="Gentle Resonance — photo by David Ivanyuck">
+          <!-- Gentle Resonance (16:9) — second row right -->
+          <div class="gallery-item aspect-16-9" data-id="gentle-resonance" data-bw="6fa2cdce-373a-4099-985b-6146d77dffb1.png" data-color="P1070449.JPG" data-desc="Gentle Resonance — photo by David Ivanyuck">
             <img src="P1070449.JPG" alt="Gentle Resonance">
           </div>
         </div>
@@ -783,13 +759,12 @@
     </section>
   </main>
 
-  <!-- Lightbox (kept; now correctly hidden until used) -->
   <div class="lightbox" id="lightbox">
     <span class="lightbox-close">&times;</span>
     <img class="lightbox-img" src="" alt="">
     <p class="lightbox-desc"></p>
   </div>
- <!-- About Section -->
+
 <section class="about-section" aria-label="About BenGurWaves" style="min-height:600px; display:flex; align-items:center; justify-content:center; background:#0a0a0a; position:relative; padding:60px 20px; box-sizing:border-box;">
   <div style="max-width:1000px; width:100%; display:flex; flex-direction:row; gap:40px; align-items:center; flex-wrap:wrap;">
     <div style="flex:1 1 320px; display:flex; justify-content:center;">
@@ -807,36 +782,30 @@
   </div>
 </section>
 
-  <!-- Scripts -->
  <script>
-  /* ================= Gallery hover & click (CSS-first approach: use color src + CSS filter) ================= */
   (function(){
     const items = document.querySelectorAll('.gallery-item');
-    const lightbox = document.getElementById('lightbox'); // kept if you want to use later
+    const lightbox = document.getElementById('lightbox');
     const lbImg = document.querySelector('.lightbox-img');
     const lbDesc = document.querySelector('.lightbox-desc');
     const lbClose = document.querySelector('.lightbox-close');
 
-    // PRELOAD color images so hover is instant (keeps them cached)
     items.forEach(item => {
       const img = item.querySelector('img');
       const bw = item.getAttribute('data-bw') || img.getAttribute('src');
       const color = item.getAttribute('data-color') || bw;
       const id = item.getAttribute('data-id') || 'top';
 
-      // Preload color
       if (color) {
         const p = new Image();
         p.src = color;
       }
 
-      // Keep click behavior: navigate to gallery anchor
       item.addEventListener('click', () => {
         window.location.href = `gallery.html#${encodeURIComponent(id)}`;
       });
     });
 
-    // Lightbox handlers (kept, unused by default)
     if(lbClose){
       lbClose.addEventListener('click', () => lightbox.classList.remove('active'));
       lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('active'); });
@@ -848,7 +817,6 @@
       requestAnimationFrame(updateReleaseTextColors);
     });
 
-    /* hero quote hover effect */
     const heroQuoteWrapper = document.querySelector('.hero-quote-wrapper');
     heroQuoteWrapper && heroQuoteWrapper.addEventListener('mouseenter', () => {
       document.body.classList.add('colorful-bg');
@@ -857,7 +825,6 @@
       document.body.classList.remove('colorful-bg');
     });
 
-    /* hero shrink logic (unchanged) */
     const heroName = document.querySelector('.hero-name');
     const heroDesc = document.querySelector('.hero-description');
     const headerBrand = document.querySelector('.brand');
@@ -878,17 +845,14 @@
       }
     });
 
-    /* ---------------- Releases text color fade logic ---------------- */
-    const releaseHeading = document.querySelector('.release-heading'); // "Latest Single"
-    const releaseTitle = document.querySelector('.release-title');     // track title
-    const releaseDesc = document.querySelector('.release-description'); // description
+    const releaseHeading = document.querySelector('.release-heading');
+    const releaseTitle = document.querySelector('.release-title');
+    const releaseDesc = document.querySelector('.release-description');
 
     function lerp(a,b,t){ return a + (b-a)*t; }
     function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
     function rgbToStr(r,g,b){ return 'rgb(' + Math.round(r) + ',' + Math.round(b) + ',' + Math.round(b) + ')'; }
-    // ^^^ intentionally keep function structure; fix typo in rgbToStr below
 
-    // fix rgbToStr (corrected)
     function rgbToStr(r,g,b){ return 'rgb(' + Math.round(r) + ',' + Math.round(g) + ',' + Math.round(b) + ')'; }
 
     function colorFromProgress(p){
@@ -949,7 +913,6 @@
     setTimeout(() => requestAnimationFrame(updateReleaseTextColors), 300);
     setTimeout(() => requestAnimationFrame(updateReleaseTextColors), 1100);
 
-    /* ---------------- Sheet cards interactions (touch + keyboard) ---------------- */
     const sheetCards = document.querySelector('.sheet-cards');
     sheetCards && sheetCards.addEventListener('focus', () => sheetCards.classList.add('focused'));
     sheetCards && sheetCards.classList.add('focused')
@@ -964,4 +927,3 @@
 
 </body>
 </html>
- 
